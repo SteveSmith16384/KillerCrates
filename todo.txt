@@ -1,0 +1,138 @@
+Killer Crates
+
+https://opengameart.org/content/urban-skyboxes
+http://opengameart.org/content/horror-sci-fi-3d-map-kit
+SFX: https://opengameart.org/content/4-projectile-launches
+
+
+URGENT
+Use diff skyscraper textures
+JetPac max height
+Split code for killer crates and BladeRunner
+SimplyCity not right - small road problem
+Use better texture for city pavement
+	Remove laser when hits
+Invis and jetpac not working
+	Use capsule for AI
+	AI - check if position not changed, then change dir
+	Say what ability is in hud
+	Win when score reaches 100
+HOME - Need 3D model for players
+Better font - use SF font?
+HOME Find sfx
+HOME Music
+HOME Add SFX
+Do exe release
+Change avatar for city map - rotating cylinder? 
+
+
+TODO
+Targetting HUD
+Street lights
+Get text colour from game mode
+Guns - magazine size, reload mag time
+Wrap p() in debug
+Combine IWeapon and IAbility - ability1, ability2
+No HUD on single player
+Select character class at start
+Create vestibules
+Cars that drive down roads
+Explosions
+Create diff types of guns
+Better skybox
+Configurable map
+Why does player jump when box too big?  https://stackoverflow.com/questions/22506892/jmonkeyengine-bettercharactercontrol-always-bouncing
+Walk around a city hunting Ai
+Shrink ray
+Raised platforms
+Search for todos
+Points for collecting a collectable
+moving platforms
+Different environments (textures)
+Unit Tests
+Create multi-level map files
+Map with lots of floating walkways 
+
+
+MUCH LATER
+Headshots - have small box at top
+Random map generation
+AI comrades & enemy
+Show shot accuracy
+
+
+STATS
+Move Speed
+Jump height
+Turn speed
+Gun
+Ability
+
+
+WEAPONS
+laser rifle
+Grenade launcher
+Freeze ray
+Rocket launcher
+sniper rifle
+Bullets that bounce around corners
+
+
+ABILITIES
+	Invisible
+	Jet Pac
+Super Jump
+Freeze enemy
+Heal
+Drop mines
+Teleport forwards
+X-Ray vision
+Blow enemies away
+Force Field
+	Run fast
+Invincible
+Auto-aim
+
+
+GAME MODES
+Collect the most collectables
+Skirmish
+	What the Box
+Overwatch
+Hide and Seek
+Defend the Base
+Tig
+
+
+TEX
+https://opengameart.org/content/fluffy-clouds
+https://opengameart.org/content/hand-painted-mountain-texture
+https://opengameart.org/content/kiira-texture-collection
+https://opengameart.org/content/cartonny-tree-leaves-and-flowers
+https://opengameart.org/content/mayan-stone-ornament
+https://opengameart.org/content/handpainted-tileable-wall
+https://opengameart.org/content/scifi-metal-texture
+https://opengameart.org/content/hand-painted-texture-iceberg
+https://opengameart.org/content/stone-wall-with-cracks
+https://opengameart.org/content/3-crate-textures-w-bump-normal
+
+USED:
+CREDITED: https://opengameart.org/content/5-wood-textures - CC0
+CREDITED: https://opengameart.org/content/hand-painted-texture-sandstone - KIIRA
+CREDITED: https://opengameart.org/content/seamless-bricks - CC0
+CREDITED: https://opengameart.org/content/tileable-crates - credit http://borysses.deviantart.com/
+CREDITED: https://opengameart.org/content/cartoony-sky - credit https://opengameart.org/content/cartoony-sky
+
+
+NOTES
+We move the player and set the camera location based on player's node
+
+
+INSPIRATION
+What The Box?
+Cholo remake
+Overwatch
+Goldeneye N64
+Quazatron
+
+
