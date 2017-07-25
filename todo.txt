@@ -1,6 +1,7 @@
 Killer Crates
 
 URGENT
+Get entities to add themselves to the entity list
 	Show game name in text at start
 	Move text slightly right
 Better font - use SF font?

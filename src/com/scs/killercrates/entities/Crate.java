@@ -51,10 +51,11 @@ public class Crate extends PhysicalEntity implements IProcessable {
 		main_node.setLocalTranslation(x+(w/2), h/2, z+(d/2));
 
 		floor_phy = new RigidBodyControl(1f);
-		geometry.addControl(floor_phy);
+		main_node.addControl(floor_phy);
 		module.bulletAppState.getPhysicsSpace().add(floor_phy);
 
 		this.geometry.setUserData(Settings.ENTITY, this);
+		main_node.setUserData(Settings.ENTITY, this);
 		floor_phy.setUserObject(this);
 
 	}
