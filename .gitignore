@@ -1,0 +1,11 @@
+/bin/
+
+OpenAL64.dll
+bulletjme64.dll
+lwjgl64.dll
+OpenAL32.dll
+bulletjme.dll
+lwjgl.dll
+jinput-dx8.dll
+jinput-raw.dll
+.svn

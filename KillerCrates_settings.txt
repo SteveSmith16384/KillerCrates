@@ -1,0 +1,6 @@
+#Killer Crates settings file
+# If you mess up this file, just move it out the way and another will be created.
+mapSize=25
+numInnerWalls=5
+numCrates=35
+numPlanks=10
