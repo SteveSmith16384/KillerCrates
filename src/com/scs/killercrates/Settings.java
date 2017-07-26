@@ -3,8 +3,8 @@ package com.scs.killercrates;
 public class Settings {
 	
 	public static final String VERSION = "0.01";
-	public static final boolean SHOW_LOGO = false;
-	public static final boolean ALWAYS_SHOW_4_CAMS = true;
+	public static final boolean SHOW_LOGO = true;
+	public static final boolean ALWAYS_SHOW_4_CAMS = false;
 	public static final boolean DEBUG_HUD = false;
 	public static final boolean RECORD_VID = false;
 	

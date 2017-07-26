@@ -7,5 +7,6 @@ OpenAL32.dll
 bulletjme.dll
 lwjgl.dll
 jinput-dx8.dll
-jinput-raw.dll
+jinput-raw_64.dll
+jinput-dx8_64.dll
 .svn
