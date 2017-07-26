@@ -74,8 +74,8 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		int i = NumberFunctions.rnd(1, 10);
 		crateTexKey = new TextureKey("Textures/boxes and crates/" + i + ".png");
 
-			IMapLoader maploader = new SimpleMapLoader(game, this, new BoxMap(game, this));
-			mapData = maploader.loadMap();
+		IMapLoader maploader = new SimpleMapLoader(game, this, new BoxMap(game, this));
+		mapData = maploader.loadMap();
 
 		Joystick[] joysticks = game.getInputManager().getJoysticks();
 		int numPlayers = 1+joysticks.length;
@@ -191,7 +191,7 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		//c.lookAt(new Vector3f(map.getWidth()/2, 2f, map.getDepth()/2), Vector3f.UNIT_Y);
 
 		final ViewPort view2 = game.getRenderManager().createMainView("viewport_"+newCam.toString(), newCam);
-			view2.setBackgroundColor(new ColorRGBA(148f/255f, 187f/255f, 242f/255f, 0f));
+		view2.setBackgroundColor(new ColorRGBA(148f/255f, 187f/255f, 242f/255f, 0f));
 		view2.setClearFlags(true, true, true);
 		view2.attachScene(game.getRootNode());
 
