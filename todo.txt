@@ -1,9 +1,9 @@
 Killer Crates
 
 URGENT
-Change gemoetry,addcontrol to main_node.addcontrol
-Remove "no ability"
-Get entities to add themselves to the entity list
+	Change gemoetry,addcontrol to main_node.addcontrol
+	Remove "no ability"
+	Get entities to add themselves to the entity list
 	Show game name in text at start
 	Move text slightly right
 Better font - use SF font?

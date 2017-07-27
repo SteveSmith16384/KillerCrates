@@ -16,14 +16,14 @@ public class Collectable extends PhysicalEntity implements ICollideable {
 
 	private static final float SIZE = .1f;
 
-	private Geometry geometry;
+	//private Geometry geometry;
 	private RigidBodyControl floor_phy;
 	
 	public Collectable(KillerCrates _game, GameModule _module, float x, float z) {
 		super(_game, _module, "Collectable");
 
 		Box box1 = new Box(SIZE, SIZE, SIZE);
-		geometry = new Geometry("Collectable", box1);
+		Geometry geometry = new Geometry("Collectable", box1);
 		TextureKey key3 = new TextureKey("Textures/sun.jpg");
 		key3.setGenerateMips(true);
 		Texture tex3 = game.getAssetManager().loadTexture(key3);
@@ -43,11 +43,11 @@ public class Collectable extends PhysicalEntity implements ICollideable {
 		main_node.setLocalTranslation(x, 5f, z); // Drop from sky
 
 		floor_phy = new RigidBodyControl(0.1f);
-		geometry.addControl(floor_phy);
+		main_node.addControl(floor_phy);
 
 		module.bulletAppState.getPhysicsSpace().add(floor_phy);
 		
-		this.geometry.setUserData(Settings.ENTITY, this);
+		geometry.setUserData(Settings.ENTITY, this);
 		floor_phy.setUserObject(this);
 
 		floor_phy.setRestitution(.5f);

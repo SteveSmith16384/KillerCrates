@@ -17,7 +17,7 @@ public class Fence extends PhysicalEntity {
 	private static final float WIDTH = 2f;
 	//private static final float HEIGHT = 1.5f;
 
-	private Geometry geometry;
+	//private Geometry geometry;
 	private RigidBodyControl floor_phy;
 
 	public Fence(KillerCrates _game, GameModule _module, float x, float height, float z, float rot, int texCode) {
@@ -25,7 +25,7 @@ public class Fence extends PhysicalEntity {
 
 		Box box1 = new Box(WIDTH/2, height/2, .1f);
 		box1.scaleTextureCoordinates(new Vector2f(WIDTH, height));
-		geometry = new Geometry("Fence", box1);
+		Geometry geometry = new Geometry("Fence", box1);
 		TextureKey key3 = null;
 		
 		switch (texCode) {
@@ -62,11 +62,11 @@ public class Fence extends PhysicalEntity {
 		main_node.setLocalTranslation(x+(WIDTH/2), height/2, z+0.5f);
 
 		floor_phy = new RigidBodyControl(0);
-		geometry.addControl(floor_phy);
+		main_node.addControl(floor_phy);
 
 		module.bulletAppState.getPhysicsSpace().add(floor_phy);
 
-		this.geometry.setUserData(Settings.ENTITY, this);
+		geometry.setUserData(Settings.ENTITY, this);
 		floor_phy.setUserObject(this);
 
 	}

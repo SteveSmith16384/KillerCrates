@@ -20,7 +20,7 @@ public class NoAbility implements IAbility {
 	
 	@Override
 	public String getHudText() {
-		return "[no ability]";
+		return "";
 	}
 
 }

@@ -18,7 +18,7 @@ public class SimplePillar extends PhysicalEntity {
 	private static final float HEIGHT = 4f;
 	private static final String TEX = "Textures/OldRedBricks_T.jpg";
 
-	private Geometry geometry;
+	//private Geometry geometry;
 	private RigidBodyControl floor_phy;
 	
 	public SimplePillar(KillerCrates _game, GameModule _module, float x, float z) {
@@ -26,7 +26,7 @@ public class SimplePillar extends PhysicalEntity {
 
 		Box vert = new Box(THICKNESS/2, HEIGHT/2, THICKNESS/2);
 		vert.scaleTextureCoordinates(new Vector2f(THICKNESS, HEIGHT));
-		geometry = new Geometry("Fence", vert);
+		Geometry geometry = new Geometry("Fence", vert);
 		TextureKey key3 = new TextureKey(TEX);
 		key3.setGenerateMips(true);
 		Texture tex3 = game.getAssetManager().loadTexture(key3);
@@ -47,11 +47,11 @@ public class SimplePillar extends PhysicalEntity {
 		main_node.setLocalTranslation(x+(THICKNESS/2), HEIGHT/2, z+(THICKNESS/2));
 
 		floor_phy = new RigidBodyControl(0);
-		geometry.addControl(floor_phy);
+		main_node.addControl(floor_phy);
 
 		module.bulletAppState.getPhysicsSpace().add(floor_phy);
 		
-		this.geometry.setUserData(Settings.ENTITY, this);
+		geometry.setUserData(Settings.ENTITY, this);
 		floor_phy.setUserObject(this);
 
 	}
