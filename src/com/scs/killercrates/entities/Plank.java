@@ -6,6 +6,7 @@ import com.jme3.asset.TextureKey;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.material.Material;
 import com.jme3.math.Vector2f;
+import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
@@ -39,6 +40,8 @@ public class Plank extends PhysicalEntity {
 			floor_mat.setTexture("ColorMap", tex3);
 		}
 		geometry.setMaterial(floor_mat);
+		
+		geometry.setShadowMode(ShadowMode.Cast);
 		
 		this.main_node.attachChild(geometry);
 		float rads = (float)Math.toRadians(rotDegrees);

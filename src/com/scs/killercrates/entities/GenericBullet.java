@@ -3,6 +3,7 @@ package com.scs.killercrates.entities;
 import com.jme3.asset.TextureKey;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.material.Material;
+import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.scene.shape.Sphere.TextureMode;
@@ -52,6 +53,8 @@ public class GenericBullet extends PhysicalEntity {
 		module.bulletAppState.getPhysicsSpace().add(ball_phy);
 		/** Accelerate the physical ball to shoot it. */
 		ball_phy.setLinearVelocity(shooter.getShootDir().mult(speed));
+		
+		ball_geo.setShadowMode(ShadowMode.Cast);
 		
 		this.getMainNode().setUserData(Settings.ENTITY, this);
 		ball_phy.setUserObject(this);

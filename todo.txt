@@ -1,6 +1,7 @@
 Killer Crates
 
 URGENT
+Add logo to settings page
 	Change gemoetry,addcontrol to main_node.addcontrol
 	Remove "no ability"
 	Get entities to add themselves to the entity list
@@ -18,12 +19,8 @@ No HUD on single player
 Better skybox
 Configurable map
 Why does player jump when box too big?  https://stackoverflow.com/questions/22506892/jmonkeyengine-bettercharactercontrol-always-bouncing
-Raised platforms
 Search for todos
-moving platforms
 Different environments (textures)
-Create multi-level map files
-Map with lots of floating walkways 
 Show shot accuracy
 
 

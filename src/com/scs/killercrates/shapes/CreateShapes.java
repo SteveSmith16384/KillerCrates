@@ -7,6 +7,7 @@ import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.material.Material;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
+import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
@@ -40,6 +41,9 @@ public class CreateShapes {
 		floor_geo.setMaterial(floor_mat);
 		floor_geo.setLocalTranslation(x+(w/2), y+(height/2), z+(d/2)); // Move it into position
 		node.attachChild(floor_geo);
+
+		floor_geo.setShadowMode(ShadowMode.Receive);
+		
 
 		// Make the floor physical with mass 0.0f!
 		RigidBodyControl floor_phy = new RigidBodyControl(0f);

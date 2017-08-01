@@ -13,11 +13,13 @@ import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.light.AmbientLight;
+import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Spatial;
+import com.jme3.shadow.DirectionalLightShadowRenderer;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
 import com.scs.killercrates.components.ICollideable;
@@ -45,6 +47,8 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 	public TSArrayList<PlayersAvatar> avatars = new TSArrayList<>();
 	public IPertinentMapData mapData;
 	public TextureKey crateTexKey;
+
+	private DirectionalLight sun;
 
 	public GameModule(KillerCrates _game) {
 		super();
@@ -123,7 +127,6 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 
 		//stateManager.getState(StatsAppState.class).toggleStats(); // Turn off stats
 
-
 	}
 
 
@@ -195,6 +198,15 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		view2.setClearFlags(true, true, true);
 		view2.attachScene(game.getRootNode());
 
+		DirectionalLightShadowRenderer dlsr; 
+		final int SHADOWMAP_SIZE = 512;
+		dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 1);
+		dlsr.setShadowIntensity(1f);
+		dlsr.setShadowZFadeLength(10f);
+		dlsr.setLight(sun);
+		view2.addProcessor(dlsr);
+
+
 		return newCam;
 	}
 
@@ -231,8 +243,21 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 
 	private void setUpLight() {
 		AmbientLight al = new AmbientLight();
-		al.setColor(ColorRGBA.White.mult(3));
+		al.setColor(ColorRGBA.White.mult(2));
 		game.getRootNode().addLight(al);
+
+		sun = new DirectionalLight();
+		sun.setColor(ColorRGBA.White);
+		sun.setDirection(new Vector3f(1.0f, 4.0f, 1.0f).normalizeLocal());
+		game.getRootNode().addLight(sun);
+
+		/*
+		viewPort.setBackgroundColor(new ColorRGBA(0.87890f, 0.921875f, 0.9375f, 1.0f));
+
+        AmbientLight al = new AmbientLight();
+        al.setColor(ColorRGBA.White.mult(1.3f));
+        rootNode.addLight(al);
+		 */       
 	}
 
 
