@@ -5,6 +5,7 @@ import java.awt.Point;
 import ssmith.lang.NumberFunctions;
 
 import com.scs.killercrates.KillerCrates;
+import com.scs.killercrates.Settings;
 import com.scs.killercrates.entities.Crate;
 import com.scs.killercrates.entities.Plank;
 import com.scs.killercrates.modules.GameModule;
@@ -22,19 +23,19 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public int getWidth() {
-		return 0;//todo data[0].length;
+		return game.getPropertyAsInt("mapSize", 25);
 	}
 
 
 	@Override
 	public int getDepth() {
-		return 0;//todo 
+		return game.getPropertyAsInt("mapSize", 25);
 	}
 
 
 	@Override
 	public int getCodeForSquare(int x,  int z) {
-		return 0;//todo 
+		return Settings.MAP_NOTHING;//todo 
 	}
 
 
@@ -48,12 +49,12 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public void addMisc() {
-		int numCrates = 35;
-		try {
+		int numCrates = game.getPropertyAsInt("numCrates", 35);
+		/*try {
 			numCrates = Integer.parseInt(game.properties.getProperty("numCrates"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
+		}*/
 		
 		// Sprinkle lots of boxes
 		for (int i=0 ; i<numCrates ; i++) {
@@ -66,12 +67,12 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 		}
 
 		// Sprinkle lots of planks
-		int numPlanks = 10;
-		try {
+		int numPlanks = game.getPropertyAsInt("numPlanks", 10);
+		/*try {
 			numPlanks = Integer.parseInt(game.properties.getProperty("numPlanks"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
+		}*/
 		for (int i=0 ; i<numPlanks ; i++) {
 			int x = NumberFunctions.rnd(4, getWidth()-5);
 			int z = NumberFunctions.rnd(4, getDepth()-5);

@@ -1,12 +1,10 @@
 Killer Crates
 
 URGENT
+	Configurable map
+	Save out new config file with missing settings
+	Show config settings on Start page
 Add logo to settings page
-	Change gemoetry,addcontrol to main_node.addcontrol
-	Remove "no ability"
-	Get entities to add themselves to the entity list
-	Show game name in text at start
-	Move text slightly right
 Better font - use SF font?
 HOME Find sfx
 HOME Music
@@ -17,8 +15,6 @@ Do exe release
 TODO
 No HUD on single player
 Better skybox
-Configurable map
-Why does player jump when box too big?  https://stackoverflow.com/questions/22506892/jmonkeyengine-bettercharactercontrol-always-bouncing
 Search for todos
 Different environments (textures)
 Show shot accuracy

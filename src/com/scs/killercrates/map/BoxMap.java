@@ -71,15 +71,7 @@ public class BoxMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public void addMisc() {
-		//Sky sky = new Sky(game.getAssetManager(), module.mapData); // todo - NPE
-		//game.getRootNode().attachChild(sky.geom);
-
-		int numCrates = 35;
-		try {
-			numCrates = Integer.parseInt(game.properties.getProperty("numCrates"));
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+		int numCrates = game.getPropertyAsInt("numCrates", 35);
 		
 		// Sprinkle lots of boxes
 		for (int i=0 ; i<numCrates ; i++) {
@@ -92,12 +84,7 @@ public class BoxMap implements ISimpleMapData, IPertinentMapData {
 		}
 
 		// Sprinkle lots of planks
-		int numPlanks = 10;
-		try {
-			numPlanks = Integer.parseInt(game.properties.getProperty("numPlanks"));
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+		int numPlanks = game.getPropertyAsInt("numPlanks", 10);
 		for (int i=0 ; i<numPlanks ; i++) {
 			int x = NumberFunctions.rnd(4, getWidth()-5);
 			int z = NumberFunctions.rnd(4, getDepth()-5);

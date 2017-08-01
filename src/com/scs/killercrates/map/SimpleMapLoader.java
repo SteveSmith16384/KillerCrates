@@ -27,8 +27,6 @@ public class SimpleMapLoader implements IMapLoader {
 
 
 	public IPertinentMapData loadMap() {
-		//ISimpleMapData map = new BoxMap(game, module); //EmptyMap(game);//
-
 		// Floor first
 		for (int z=0 ; z<map.getDepth() ; z+= Settings.FLOOR_SECTION_SIZE) {
 			for (int x=0 ; x<map.getWidth() ; x+= Settings.FLOOR_SECTION_SIZE) {

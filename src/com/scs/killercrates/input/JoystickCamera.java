@@ -12,6 +12,7 @@ import com.jme3.input.event.MouseButtonEvent;
 import com.jme3.input.event.MouseMotionEvent;
 import com.jme3.input.event.TouchEvent;
 import com.jme3.renderer.Camera;
+import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.MyFlyByCamera;
 import com.scs.killercrates.Settings;
 
@@ -33,7 +34,7 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 		id = joystick.getJoyId();
 
 		super.setMoveSpeed(1f);
-		super.setRotationSpeed(1.5f);//1.4f); 
+		super.setRotationSpeed(KillerCrates.getPropertyAsFloat("gamepadRotationSpeed", 1.5f));//1.5f);//1.4f); 
 
 		this.inputManager.addRawInputListener(this);
 

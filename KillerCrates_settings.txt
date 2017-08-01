@@ -1,6 +1,8 @@
 #Killer Crates settings file
-# If you mess up this file, just move it out the way and another will be created.
+#Tue Aug 01 16:47:11 BST 2017
+numPlanks=10
 mapSize=25
 numInnerWalls=5
 numCrates=35
-numPlanks=10
+jumpForce=6.0
+moveSpeed=3.0

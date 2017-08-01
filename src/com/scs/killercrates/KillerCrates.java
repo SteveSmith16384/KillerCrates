@@ -2,6 +2,7 @@ package com.scs.killercrates;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
@@ -18,17 +19,17 @@ import com.scs.killercrates.modules.StartModule;
 
 public class KillerCrates extends MySimpleApplication { 
 
-	private static final String PROPS_FILE = Settings.NAME.replaceAll(" ", "") + "_settings.txt";
+	public static final String PROPS_FILE = Settings.NAME.replaceAll(" ", "") + "_settings.txt";
 
 	public static final Random rnd = new Random();
 
-	public static Properties properties;
+	private static Properties properties;
 	private VideoRecorderAppState video_recorder;
 	private IModule currentModule, pendingModule;
 	public static BitmapFont guiFont_small;// = game.getAssetManager().loadFont("Interface/Fonts/Console.fnt");
-	
+
 	public static KillerCrates instance;
-	
+
 	public static void main(String[] args) {
 		try {
 			properties = loadProperties();
@@ -88,13 +89,13 @@ public class KillerCrates extends MySimpleApplication {
 
 		//guiFont_small = getAssetManager().loadFont("Interface/Fonts/Console.fnt");
 		guiFont_small = getAssetManager().loadFont("Interface/Fonts/Console.fnt");
-		
+
 		cam.setFrustumPerspective(45f, (float) cam.getWidth() / cam.getHeight(), 0.01f, Settings.CAM_DIST);
 		cam.setViewPort(0f, 0.5f, 0f, 0.5f); // BL
 
 		currentModule = new StartModule(this);//GameModule(this);
 		currentModule.init();
-		
+
 		if (Settings.RECORD_VID) {
 			Settings.p("Recording video");
 			video_recorder = new VideoRecorderAppState();
@@ -118,7 +119,7 @@ public class KillerCrates extends MySimpleApplication {
 			this.currentModule.init();
 			pendingModule = null;
 		}
-		
+
 		currentModule.update(tpf_secs);
 	}
 
@@ -126,8 +127,8 @@ public class KillerCrates extends MySimpleApplication {
 	public void setNextModule(IModule newModule) {
 		pendingModule = newModule;
 	}
-	
-	
+
+
 	private static Properties loadProperties() throws IOException {
 		String filepath = PROPS_FILE;
 		File propsFile = new File(filepath);
@@ -148,6 +149,39 @@ public class KillerCrates extends MySimpleApplication {
 		return props;
 	}
 
+	
+	public static void saveProperties() {
+		String filepath = PROPS_FILE;
+		File propsFile = new File(filepath);
+		try {
+			properties.store(new FileOutputStream(propsFile), Settings.NAME + " settings file");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
+	public static int getPropertyAsInt(String name, int def) {
+		try {
+			int value = Integer.parseInt(properties.getProperty(name));
+			return value;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			properties.put(name, ""+def);
+			return def;
+		}
+	}
+
+
+	public static float getPropertyAsFloat(String name, float def) {
+		try {
+			float value = Float.parseFloat(properties.getProperty(name));
+			return value;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			properties.put(name, ""+def);
+			return def;
+		}
+	}
 
 }

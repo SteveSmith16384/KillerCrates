@@ -9,8 +9,8 @@ public class Settings {
 	public static final boolean RECORD_VID = false;
 	
 	// Our movement speed
-	public static final float DEFAULT_MOVE_SPEED = 3f;
-	public static final float DEFAULT_STRAFE_SPEED = 3f;
+	//public static final float DEFAULT_MOVE_SPEED = 3f;
+	//public static final float DEFAULT_STRAFE_SPEED = 3f;
 
 	public static final float CAM_DIST = 50f;
 	public static final int FLOOR_SECTION_SIZE = 12;

@@ -24,6 +24,7 @@ import com.jme3.renderer.ViewPort;
 import com.jme3.ui.Picture;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
+import com.scs.killercrates.map.ConfigMap;
 
 
 public class StartModule implements IModule, ActionListener, RawInputListener {
@@ -86,8 +87,14 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 
 		Joystick[] joysticks = game.getInputManager().getJoysticks();
 
+		ConfigMap cfgMap = new ConfigMap(game, null);
+		
 		BitmapText score = new BitmapText(KillerCrates.guiFont_small, false);
-		score.setText(Settings.NAME + "\n\nVersion " + Settings.VERSION + "\n\n" + (1+joysticks.length) + " player(s) found.  Please restart if you plug any more gamepads in.\n\nThe winner is the first player to score 100.\n\nPress FIRE to start!");
+		score.setText(Settings.NAME + "\n\nVersion " + Settings.VERSION + "\n\n" + 
+				(1+joysticks.length) + " player(s) found.  Please restart if you plug any more gamepads in.\n\n" + 
+				"The winner is the first player to score 100.\n\nPress FIRE to start!\n\n" + 
+				"Map settings: " + cfgMap.getWidth() + " by " + cfgMap.getDepth() + " with " + game.getPropertyAsInt("numCrates", 35) + " crates and " + game.getPropertyAsInt("numPlanks", 10) + " planks.\n" + 
+				"Edit the file '" + KillerCrates.PROPS_FILE + "' to change this.");
 		score.setLocalTranslation(20, game.getCamera().getHeight()-20, 0);
 		game.getGuiNode().attachChild(score);
 
@@ -121,6 +128,7 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		if (name.equals(START)) {
 			startGame();
 		} else if (name.equals(QUIT)) {
+			KillerCrates.saveProperties();
 			game.stop();
 		}		
 	}

@@ -24,7 +24,7 @@ public class Plank extends PhysicalEntity {
 		super(_game, _module, "Plank");
 
 		Box box1 = new Box(w/2, h/2, d/2);
-		box1.scaleTextureCoordinates(new Vector2f(1, d));
+		box1.scaleTextureCoordinates(new Vector2f(1, d)); // todo - improve tex scaling when sorted
 		Geometry geometry = new Geometry("Crate", box1);
 		int i = NumberFunctions.rnd(1,  5);
 		TextureKey key3 = new TextureKey("Textures/wood_0/wood" + i + ".png");

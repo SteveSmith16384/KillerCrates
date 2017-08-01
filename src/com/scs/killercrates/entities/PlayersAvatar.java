@@ -36,7 +36,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 	private static final float WEIGHT = 3f;
 
 	public Vector3f walkDirection = new Vector3f();
-	public float moveSpeed = Settings.DEFAULT_MOVE_SPEED;
+	public float moveSpeed = KillerCrates.getPropertyAsFloat("moveSpeed", 3f);//. Settings.DEFAULT_MOVE_SPEED;
 	private IInputDevice input;
 
 	//Temporary vectors used on each frame.
@@ -84,7 +84,8 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		
 		// create character control parameters (Radius,Height,Weight)
 		playerControl = new MyBetterCharacterControl(PLAYER_RAD, PLAYER_HEIGHT, WEIGHT);
-		playerControl.setJumpForce(new Vector3f(0, 6f, 0)); 
+		float jumpForce = KillerCrates.getPropertyAsFloat("jumpForce", 6f);
+		playerControl.setJumpForce(new Vector3f(0, jumpForce, 0)); 
 		this.getMainNode().addControl(playerControl);
 
 		module.bulletAppState.getPhysicsSpace().add(playerControl);
@@ -124,7 +125,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		 * to Y axis
 		 */
 		camDir.set(cam.getDirection()).multLocal(moveSpeed, 0.0f, moveSpeed);
-		camLeft.set(cam.getLeft()).multLocal(Settings.DEFAULT_STRAFE_SPEED);
+		camLeft.set(cam.getLeft()).multLocal(moveSpeed);
 		walkDirection.set(0, 0, 0);
 		if (input.isStrafeLeftPressed()) {
 			walkDirection.addLocal(camLeft);
@@ -229,7 +230,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 
 	@Override
 	public void hasSuccessfullyHit(IEntity e) {
-		this.incScore(10);
+		this.incScore(20);
 	}
 
 

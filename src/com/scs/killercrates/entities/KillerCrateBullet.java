@@ -31,7 +31,7 @@ public class KillerCrateBullet extends PhysicalEntity implements IBullet {
 		/** Create a cannon ball geometry and attach to scene graph. */
 		Geometry ball_geo = new Geometry("cannon ball", sphere);
 
-		TextureKey key3 = new TextureKey( "Textures/mud.png");
+		TextureKey key3 = new TextureKey( "Textures/cells3.png");
 		Texture tex3 = game.getAssetManager().loadTexture(key3);
 		Material floor_mat = null;
 		if (Settings.LIGHTING) {
