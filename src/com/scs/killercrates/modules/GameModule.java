@@ -199,10 +199,10 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		view2.attachScene(game.getRootNode());
 
 		DirectionalLightShadowRenderer dlsr; 
-		final int SHADOWMAP_SIZE = 512;
-		dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 1);
-		dlsr.setShadowIntensity(1f);
-		dlsr.setShadowZFadeLength(10f);
+		final int SHADOWMAP_SIZE = 2048;
+		dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 4);
+		//dlsr.setShadowIntensity(1f);
+		//dlsr.setShadowZFadeLength(10f);
 		dlsr.setLight(sun);
 		view2.addProcessor(dlsr);
 
@@ -248,16 +248,9 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 
 		sun = new DirectionalLight();
 		sun.setColor(ColorRGBA.White);
-		sun.setDirection(new Vector3f(1.0f, 4.0f, 1.0f).normalizeLocal());
+		sun.setDirection(new Vector3f(1.0f, -4.0f, 1.0f).normalizeLocal());
 		game.getRootNode().addLight(sun);
 
-		/*
-		viewPort.setBackgroundColor(new ColorRGBA(0.87890f, 0.921875f, 0.9375f, 1.0f));
-
-        AmbientLight al = new AmbientLight();
-        al.setColor(ColorRGBA.White.mult(1.3f));
-        rootNode.addLight(al);
-		 */       
 	}
 
 

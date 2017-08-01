@@ -7,6 +7,7 @@ import com.jme3.material.Material;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.Camera.FrustumIntersect;
+import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
@@ -79,7 +80,8 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		playerGeometry.setLocalTranslation(new Vector3f(0, (PLAYER_HEIGHT/2)-.075f, 0)); // Need this to ensure the crate is on the floor
 		this.getMainNode().attachChild(playerGeometry);
 		//this.getMainNode().setLocalTranslation(new Vector3f(0,PLAYER_HEIGHT,0)); // Need this to ensure the crate is on the floor
-
+		playerGeometry.setShadowMode(ShadowMode.Cast);
+		
 		// create character control parameters (Radius,Height,Weight)
 		playerControl = new MyBetterCharacterControl(PLAYER_RAD, PLAYER_HEIGHT, WEIGHT);
 		playerControl.setJumpForce(new Vector3f(0, 6f, 0)); 
