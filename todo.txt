@@ -8,8 +8,10 @@ https://opengameart.org/content/35-wooden-crackshitsdestructions
 
 
 URGENT
+Convert mp3 & flac to wav
+Furniture - https://opengameart.org/content/low-poly-furniture-0
 No HUD on single player
-Show shadow on crates
+	Show shadow on crates
 Update readme with config settings
 	Configurable map
 	Save out new config file with missing settings

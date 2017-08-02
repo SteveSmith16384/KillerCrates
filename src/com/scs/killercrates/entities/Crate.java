@@ -45,7 +45,7 @@ public class Crate extends PhysicalEntity implements IProcessable {
 		//floor_mat.getAdditionalRenderState().setBlendMode(BlendMode.Alpha);
 		//geometry.setQueueBucket(Bucket.Transparent);
 
-		geometry.setShadowMode(ShadowMode.Cast);
+		geometry.setShadowMode(ShadowMode.CastAndReceive);
 		
 		this.main_node.attachChild(geometry);
 		float rads = (float)Math.toRadians(rotDegrees);

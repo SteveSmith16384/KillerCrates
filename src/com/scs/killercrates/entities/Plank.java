@@ -17,7 +17,6 @@ import com.scs.killercrates.modules.GameModule;
 
 public class Plank extends PhysicalEntity {
 
-	//private Geometry geometry;
 	private RigidBodyControl floor_phy;
 	
 	public Plank(KillerCrates _game, GameModule _module, float x, float z, float w, float h, float d, float rotDegrees) {
@@ -41,7 +40,7 @@ public class Plank extends PhysicalEntity {
 		}
 		geometry.setMaterial(floor_mat);
 		
-		geometry.setShadowMode(ShadowMode.Cast);
+		geometry.setShadowMode(ShadowMode.CastAndReceive);
 		
 		this.main_node.attachChild(geometry);
 		float rads = (float)Math.toRadians(rotDegrees);

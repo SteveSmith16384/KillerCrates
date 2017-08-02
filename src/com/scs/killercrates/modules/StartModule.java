@@ -2,6 +2,8 @@ package com.scs.killercrates.modules;
 
 import java.util.List;
 
+import com.jme3.audio.AudioData.DataType;
+import com.jme3.audio.AudioNode;
 import com.jme3.font.BitmapText;
 import com.jme3.input.Joystick;
 import com.jme3.input.JoystickButton;
@@ -101,6 +103,16 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		numPlayerText = new BitmapText(KillerCrates.guiFont_small, false);
 		numPlayerText.setLocalTranslation(20, game.getCamera().getHeight()-120, 0);
 		game.getGuiNode().attachChild(numPlayerText);
+		
+		
+		// Audio
+		AudioNode audio_nature = new AudioNode(game.getAssetManager(), "sfx/independent_nu_ljudbank-wood_crack_hit_destruction/wood_impact/impactwood25.mp3.flac", true, false);
+		//AudioNode audio_nature = new AudioNode(game.getAssetManager(), "sfx/megasong.mp3", true, false);
+	    audio_nature.setLooping(true);  // activate continuous playing
+	    audio_nature.setPositional(false);
+	    audio_nature.setVolume(3);
+	    game.getRootNode().attachChild(audio_nature);
+	    audio_nature.play(); // play continuously!
 	}
 
 
