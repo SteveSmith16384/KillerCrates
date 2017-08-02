@@ -1,6 +1,16 @@
 Killer Crates
 
+SFX
+https://opengameart.org/content/teleport
+https://opengameart.org/content/megasong
+https://opengameart.org/content/4-projectile-launches
+https://opengameart.org/content/35-wooden-crackshitsdestructions
+
+
 URGENT
+No HUD on single player
+Show shadow on crates
+Update readme with config settings
 	Configurable map
 	Save out new config file with missing settings
 	Show config settings on Start page
@@ -13,7 +23,6 @@ Do exe release
 
 
 TODO
-No HUD on single player
 Better skybox
 Search for todos
 Different environments (textures)
