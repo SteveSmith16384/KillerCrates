@@ -162,7 +162,7 @@ public class KillerCrates extends MySimpleApplication {
 	
 
 	public static int getPropertyAsInt(String name, int def) {
-		try {
+		try { // todo - cache
 			int value = Integer.parseInt(properties.getProperty(name));
 			return value;
 		} catch (Exception ex) {

@@ -4,10 +4,15 @@ import java.awt.Point;
 
 import ssmith.lang.NumberFunctions;
 
+import com.jme3.scene.Node;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
-import com.scs.killercrates.entities.Crate;
+import com.scs.killercrates.entities.GenericModelEntity;
+import com.scs.killercrates.entities.Fence;
+import com.scs.killercrates.entities.PhysicalEntity;
 import com.scs.killercrates.entities.Plank;
+import com.scs.killercrates.models.ChairModel;
+import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.GameModule;
 
 public class ConfigMap implements ISimpleMapData, IPertinentMapData {
@@ -23,13 +28,13 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public int getWidth() {
-		return game.getPropertyAsInt("mapSize", 25);
+		return game.getPropertyAsInt("mapSize", 25); // todo - cache
 	}
 
 
 	@Override
 	public int getDepth() {
-		return game.getPropertyAsInt("mapSize", 25);
+		return game.getPropertyAsInt("mapSize", 25); // todo - cache
 	}
 
 
@@ -49,6 +54,25 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public void addMisc() {
+		// Add outer walls
+		for (int x=2 ; x<this.getWidth() ; x+=2) {
+			PhysicalEntity fence1 = new Fence(game, module, x, 4f, 1, 0, 0);
+			game.getRootNode().attachChild(fence1.getMainNode());
+
+			PhysicalEntity fence2 = new Fence(game, module, x, 4f, this.getDepth()-2, 0, 0);
+			game.getRootNode().attachChild(fence2.getMainNode());
+
+		}
+		
+		for (int y=2 ; y<this.getDepth() ; y+=2) {
+			PhysicalEntity fence1 = new Fence(game, module, 1, 4f, y, 90, 0);
+			game.getRootNode().attachChild(fence1.getMainNode());
+
+			PhysicalEntity fence2 = new Fence(game, module, this.getWidth()-2, 4f, y, 90, 0);
+			game.getRootNode().attachChild(fence2.getMainNode());
+
+		}
+		
 		int numCrates = game.getPropertyAsInt("numCrates", 35);
 		/*try {
 			numCrates = Integer.parseInt(game.properties.getProperty("numCrates"));
@@ -62,7 +86,18 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 			int z = NumberFunctions.rnd(4, getDepth()-5);
 			float w = NumberFunctions.rndFloat(.2f, 1f);
 			float d = NumberFunctions.rndFloat(w, w+0.3f);
-			Crate crate = new Crate(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), module.crateTexKey);
+			//Crate crate = new Crate(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), module.crateTexKey);
+			int id = NumberFunctions.rnd(1, 2);
+			Node model = null;
+			switch (id) {
+			case 1:
+				model = new ChairModel(game.getAssetManager());
+				break;
+			case 2:
+				model = new TableSimpleModel(game.getAssetManager());
+				break;
+			}
+			GenericModelEntity crate = new GenericModelEntity(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), model);
 			game.getRootNode().attachChild(crate.getMainNode());
 		}
 

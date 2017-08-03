@@ -31,7 +31,7 @@ import com.scs.killercrates.hud.HUD;
 import com.scs.killercrates.input.IInputDevice;
 import com.scs.killercrates.input.JoystickCamera;
 import com.scs.killercrates.input.MouseAndKeyboardCamera;
-import com.scs.killercrates.map.BoxMap;
+import com.scs.killercrates.map.ConfigMap;
 import com.scs.killercrates.map.IMapLoader;
 import com.scs.killercrates.map.IPertinentMapData;
 import com.scs.killercrates.map.SimpleMapLoader;
@@ -78,7 +78,7 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		int i = NumberFunctions.rnd(1, 10);
 		crateTexKey = new TextureKey("Textures/boxes and crates/" + i + ".png");
 
-		IMapLoader maploader = new SimpleMapLoader(game, this, new BoxMap(game, this));
+		IMapLoader maploader = new SimpleMapLoader(game, this, new ConfigMap(game, this));// BoxMap(game, this));
 		mapData = maploader.loadMap();
 
 		Joystick[] joysticks = game.getInputManager().getJoysticks();

@@ -16,9 +16,9 @@ import com.scs.killercrates.modules.GameModule;
 
 public class Crate extends PhysicalEntity implements IProcessable {
 
-	private static final Vector3f JUMP = new Vector3f(0, -50, 0);
+	//private static final Vector3f JUMP = new Vector3f(0, -50, 0);
 
-	private Geometry geometry;
+	//private Geometry geometry;
 	private RigidBodyControl floor_phy;
 
 	public Crate(KillerCrates _game, GameModule _module, float x, float z, float w, float h, float d, float rotDegrees, TextureKey key3) {
@@ -26,7 +26,7 @@ public class Crate extends PhysicalEntity implements IProcessable {
 
 		Box box1 = new Box(w/2, h/2, d/2);
 		//box1.scaleTextureCoordinates(new Vector2f(WIDTH, HEIGHT));
-		geometry = new Geometry("Crate", box1);
+		Geometry geometry = new Geometry("Crate", box1);
 		//TextureKey key3 = new TextureKey("Textures/crate.png");
 		//TextureKey key3 = new TextureKey("Textures/boxes and crates/1.jpg");
 		key3.setGenerateMips(true);
@@ -57,7 +57,7 @@ public class Crate extends PhysicalEntity implements IProcessable {
 		main_node.addControl(floor_phy);
 		module.bulletAppState.getPhysicsSpace().add(floor_phy);
 
-		this.geometry.setUserData(Settings.ENTITY, this);
+		geometry.setUserData(Settings.ENTITY, this);
 		main_node.setUserData(Settings.ENTITY, this);
 		floor_phy.setUserObject(this);
 

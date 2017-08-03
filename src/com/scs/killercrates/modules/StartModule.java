@@ -106,13 +106,13 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		
 		
 		// Audio
-		AudioNode audio_nature = new AudioNode(game.getAssetManager(), "sfx/independent_nu_ljudbank-wood_crack_hit_destruction/wood_impact/impactwood25.mp3.flac", true, false);
+		/*todo - re-add AudioNode audio_nature = new AudioNode(game.getAssetManager(), "sfx/independent_nu_ljudbank-wood_crack_hit_destruction/wood_impact/impactwood25.mp3.flac", true, false);
 		//AudioNode audio_nature = new AudioNode(game.getAssetManager(), "sfx/megasong.mp3", true, false);
 	    audio_nature.setLooping(true);  // activate continuous playing
 	    audio_nature.setPositional(false);
 	    audio_nature.setVolume(3);
 	    game.getRootNode().attachChild(audio_nature);
-	    audio_nature.play(); // play continuously!
+	    audio_nature.play(); // play continuously!*/
 	}
 
 

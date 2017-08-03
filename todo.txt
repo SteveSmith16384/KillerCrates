@@ -7,15 +7,19 @@ https://opengameart.org/content/4-projectile-launches
 https://opengameart.org/content/35-wooden-crackshitsdestructions
 
 
+GAME MODES
+Shoot each other
+Game mode - push each other off edge
+
+
 URGENT
-Convert mp3 & flac to wav
+Change txture to be like a house.
+	Add outer walls to configmap
+HOME Convert mp3 & flac to wav
 Furniture - https://opengameart.org/content/low-poly-furniture-0
 No HUD on single player
-	Show shadow on crates
 Update readme with config settings
 	Configurable map
-	Save out new config file with missing settings
-	Show config settings on Start page
 Add logo to settings page
 Better font - use SF font?
 HOME Find sfx
@@ -28,7 +32,6 @@ TODO
 Better skybox
 Search for todos
 Different environments (textures)
-Show shot accuracy
 
 
 TEX
