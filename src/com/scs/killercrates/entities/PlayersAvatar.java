@@ -9,10 +9,11 @@ import com.jme3.renderer.Camera;
 import com.jme3.renderer.Camera.FrustumIntersect;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
-import com.scs.killercrates.MyBetterCharacterControl;
 import com.scs.killercrates.KillerCrates;
+import com.scs.killercrates.MyBetterCharacterControl;
 import com.scs.killercrates.Settings;
 import com.scs.killercrates.Sky;
 import com.scs.killercrates.abilities.IAbility;
@@ -49,7 +50,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 	public final int id;
 	private float timeSinceLastMove = 0;
 	private IAbility ability;
-	public Geometry playerGeometry;
+	public Spatial playerGeometry;
 	private int score = 20;
 	private IMainWeapon weapon;
 
@@ -62,9 +63,11 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		hud = _hud;
 
 		weapon = new KillerCrateGun(_game, _module, this);
-		Box box1 = new Box(PLAYER_RAD, PLAYER_HEIGHT/2, PLAYER_RAD);
+		
+		playerGeometry = game.getRandomModel();
+		
+		/*Box box1 = new Box(PLAYER_RAD, PLAYER_HEIGHT/2, PLAYER_RAD);
 		playerGeometry = new Geometry("Player", box1);
-		//TextureKey key3 = new TextureKey("Textures/boxes and crates/1.jpg");
 		key3.setGenerateMips(true);
 		Texture tex3 = game.getAssetManager().loadTexture(key3);
 		Material floor_mat = null;
@@ -77,10 +80,11 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		}
 		playerGeometry.setMaterial(floor_mat);
 		//playerGeometry.setLocalTranslation(new Vector3f(0, PLAYER_HEIGHT/2, 0)); // Need this to ensure the crate is on the floor
-		playerGeometry.setLocalTranslation(new Vector3f(0, (PLAYER_HEIGHT/2)-.075f, 0)); // Need this to ensure the crate is on the floor
+		playerGeometry.setLocalTranslation(new Vector3f(0, (PLAYER_HEIGHT/2)-.075f, 0)); // Need this to ensure the crate is on the floor*/
 		this.getMainNode().attachChild(playerGeometry);
 		//this.getMainNode().setLocalTranslation(new Vector3f(0,PLAYER_HEIGHT,0)); // Need this to ensure the crate is on the floor
-		playerGeometry.setShadowMode(ShadowMode.Cast);
+		
+		playerGeometry.setShadowMode(ShadowMode.CastAndReceive);
 		
 		// create character control parameters (Radius,Height,Weight)
 		playerControl = new MyBetterCharacterControl(PLAYER_RAD, PLAYER_HEIGHT, WEIGHT);
@@ -94,7 +98,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		playerControl.getPhysicsRigidBody().setUserObject(this);
 
 		this.ability = new NoAbility();
-		this.hud.setAbilityText(this.ability.getHudText());
+		//this.hud.setAbilityText(this.ability.getHudText());
 	}
 
 

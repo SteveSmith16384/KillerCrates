@@ -4,9 +4,14 @@ import java.awt.Point;
 
 import ssmith.lang.NumberFunctions;
 
+import com.jme3.scene.Node;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.entities.Crate;
+import com.scs.killercrates.entities.GenericModelEntity;
 import com.scs.killercrates.entities.Plank;
+import com.scs.killercrates.models.ChairModel;
+import com.scs.killercrates.models.StoolModel;
+import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.GameModule;
 
 public class BoxMap implements ISimpleMapData, IPertinentMapData {
@@ -79,7 +84,23 @@ public class BoxMap implements ISimpleMapData, IPertinentMapData {
 			int z = NumberFunctions.rnd(4, getDepth()-5);
 			float w = NumberFunctions.rndFloat(.2f, 1f);
 			float d = NumberFunctions.rndFloat(w, w+0.3f);
-			Crate crate = new Crate(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), module.crateTexKey);
+			//Crate crate = new Crate(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), module.crateTexKey);
+			/*int id = NumberFunctions.rnd(1, 3);
+			Node model = null;
+			switch (id) {
+			case 1:
+				model = new ChairModel(game.getAssetManager());
+				break;
+			case 2:
+				model = new TableSimpleModel(game.getAssetManager());
+				break;
+			case 3:
+				model = new StoolModel(game.getAssetManager());
+				break;
+			}*/
+			Node model = game.getRandomModel();
+			GenericModelEntity crate = new GenericModelEntity(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), model);
+
 			game.getRootNode().attachChild(crate.getMainNode());
 		}
 

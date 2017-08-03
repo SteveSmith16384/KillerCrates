@@ -9,11 +9,17 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.prefs.BackingStoreException;
 
+import ssmith.lang.NumberFunctions;
+
 import com.jme3.app.state.VideoRecorderAppState;
 import com.jme3.asset.plugins.ClasspathLocator;
 import com.jme3.asset.plugins.FileLocator;
 import com.jme3.font.BitmapFont;
+import com.jme3.scene.Node;
 import com.jme3.system.AppSettings;
+import com.scs.killercrates.models.ChairModel;
+import com.scs.killercrates.models.StoolModel;
+import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.IModule;
 import com.scs.killercrates.modules.StartModule;
 
@@ -182,6 +188,24 @@ public class KillerCrates extends MySimpleApplication {
 			properties.put(name, ""+def);
 			return def;
 		}
+	}
+	
+	
+	public Node getRandomModel() {
+		int id = NumberFunctions.rnd(1, 3);
+		Node model = null;
+		switch (id) {
+		case 1:
+			model = new ChairModel(getAssetManager());
+			break;
+		case 2:
+			model = new TableSimpleModel(getAssetManager());
+			break;
+		case 3:
+			model = new StoolModel(getAssetManager());
+			break;
+		}
+		return model;
 	}
 
 }

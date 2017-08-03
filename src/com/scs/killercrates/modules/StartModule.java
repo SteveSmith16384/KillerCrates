@@ -2,8 +2,6 @@ package com.scs.killercrates.modules;
 
 import java.util.List;
 
-import com.jme3.audio.AudioData.DataType;
-import com.jme3.audio.AudioNode;
 import com.jme3.font.BitmapText;
 import com.jme3.input.Joystick;
 import com.jme3.input.JoystickButton;
@@ -21,8 +19,10 @@ import com.jme3.input.event.MouseMotionEvent;
 import com.jme3.input.event.TouchEvent;
 import com.jme3.light.AmbientLight;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.ViewPort;
+import com.jme3.scene.Node;
 import com.jme3.ui.Picture;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
@@ -36,7 +36,8 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 
 	protected KillerCrates game;
 	private BitmapText numPlayerText;
-
+	private Node model;
+	
 	public StartModule(KillerCrates _game) {
 		super();
 
@@ -56,6 +57,8 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		Camera newCam = game.getCamera();
 		newCam.setFrustumPerspective(45f, (float) newCam.getWidth() / newCam.getHeight(), 0.01f, Settings.CAM_DIST);
 		newCam.setViewPort(0f, 1f, 0f, 1f);
+		newCam.setLocation(Vector3f.ZERO);
+		newCam.lookAt(Vector3f.UNIT_Z, Vector3f.UNIT_Y);
 
 		final ViewPort view2 = game.getRenderManager().createMainView("viewport_" + newCam.toString(), newCam);
 		//view2.setBackgroundColor(new ColorRGBA(0f, 0.9f, .9f, 0f)); // 148 187 242
@@ -113,12 +116,16 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 	    audio_nature.setVolume(3);
 	    game.getRootNode().attachChild(audio_nature);
 	    audio_nature.play(); // play continuously!*/
+		
+		model = game.getRandomModel();
+		model.setLocalTranslation(0, 0, 2);
+		game.getRootNode().attachChild(model);
 	}
 
 
 	@Override
 	public void update(float tpf) {
-		// Do nothing
+		model.rotate(0,  tpf,  0);
 	}
 
 

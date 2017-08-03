@@ -13,7 +13,10 @@ Game mode - push each other off edge
 
 
 URGENT
-Change txture to be like a house.
+cupboard, sofa single, 
+Make players a piece of furniture
+Change textures to be like a house.
+	Rotate furniture on start screen
 	Add outer walls to configmap
 HOME Convert mp3 & flac to wav
 Furniture - https://opengameart.org/content/low-poly-furniture-0
