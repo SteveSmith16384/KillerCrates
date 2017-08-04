@@ -98,7 +98,7 @@ public class BoxMap implements ISimpleMapData, IPertinentMapData {
 				model = new StoolModel(game.getAssetManager());
 				break;
 			}*/
-			Node model = game.getRandomModel();
+			Node model = game.getRandomModel(false);
 			GenericModelEntity crate = new GenericModelEntity(game, module, x, z, w, w, d, NumberFunctions.rnd(0, 359), model);
 
 			game.getRootNode().attachChild(crate.getMainNode());

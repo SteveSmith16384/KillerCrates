@@ -1,5 +1,5 @@
 package com.scs.killercrates.entities;
-
+/*
 import com.jme3.asset.TextureKey;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.material.Material;
@@ -76,3 +76,4 @@ public class AbstractPlatform extends PhysicalEntity implements IProcessable {
 
 
 }
+*/

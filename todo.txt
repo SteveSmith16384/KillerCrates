@@ -9,29 +9,27 @@ https://opengameart.org/content/35-wooden-crackshitsdestructions
 
 GAME MODES
 Shoot each other
-Game mode - push each other off edge
 
 
 URGENT
-cupboard, sofa single, 
-Make players a piece of furniture
-Change textures to be like a house.
-	Rotate furniture on start screen
-	Add outer walls to configmap
+	Chair floating slightly
+HOME Gamepad a bit sensitive
+HOME Change textures to be like a house.
+	Select 3d detail level in config
+Affect other players with physics
+Use more models: cupboard, sofa single 
 HOME Convert mp3 & flac to wav
-Furniture - https://opengameart.org/content/low-poly-furniture-0
 No HUD on single player
 Update readme with config settings
-	Configurable map
+
+
+TODO
 Add logo to settings page
 Better font - use SF font?
 HOME Find sfx
 HOME Music
 HOME Add SFX
 Do exe release
-
-
-TODO
 Better skybox
 Search for todos
 Different environments (textures)
@@ -49,11 +47,14 @@ https://opengameart.org/content/hand-painted-texture-iceberg
 https://opengameart.org/content/stone-wall-with-cracks
 https://opengameart.org/content/3-crate-textures-w-bump-normal
 
-USED:
+TEX USED:
 CREDITED: https://opengameart.org/content/5-wood-textures - CC0
 CREDITED: https://opengameart.org/content/hand-painted-texture-sandstone - KIIRA
 CREDITED: https://opengameart.org/content/seamless-bricks - CC0
 CREDITED: https://opengameart.org/content/tileable-crates - credit http://borysses.deviantart.com/
 CREDITED: https://opengameart.org/content/cartoony-sky - credit https://opengameart.org/content/cartoony-sky
 
+
+MODELS:
+USED - https://opengameart.org/content/low-poly-furniture-0
 

@@ -64,7 +64,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 
 		weapon = new KillerCrateGun(_game, _module, this);
 		
-		playerGeometry = game.getRandomModel();
+		playerGeometry = game.getRandomModel(true);
 		
 		/*Box box1 = new Box(PLAYER_RAD, PLAYER_HEIGHT/2, PLAYER_RAD);
 		playerGeometry = new Geometry("Player", box1);
@@ -172,6 +172,10 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		lookAtPoint.y = cam.getLocation().y;
 		this.playerGeometry.lookAt(lookAtPoint, Vector3f.UNIT_Y);
 
+		// Move cam fwd so we don't see ourselves
+		cam.setLocation(cam.getLocation().add(cam.getDirection().mult(PLAYER_RAD)));
+
+		
 		this.input.resetFlags();
 
 		// Have we fallen off the edge

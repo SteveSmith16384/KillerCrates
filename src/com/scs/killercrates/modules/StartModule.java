@@ -117,7 +117,7 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 	    game.getRootNode().attachChild(audio_nature);
 	    audio_nature.play(); // play continuously!*/
 		
-		model = game.getRandomModel();
+		model = game.getRandomModel(false);
 		model.setLocalTranslation(0, 0, 2);
 		game.getRootNode().attachChild(model);
 	}

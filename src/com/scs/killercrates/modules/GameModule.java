@@ -198,14 +198,15 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		view2.setClearFlags(true, true, true);
 		view2.attachScene(game.getRootNode());
 
-		DirectionalLightShadowRenderer dlsr; 
-		final int SHADOWMAP_SIZE = 2048;
-		dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 4);
-		//dlsr.setShadowIntensity(1f);
-		//dlsr.setShadowZFadeLength(10f);
-		dlsr.setLight(sun);
-		view2.addProcessor(dlsr);
-
+		if (game.getPropertyAsBoolean("useShadows", true)) {
+			DirectionalLightShadowRenderer dlsr; 
+			final int SHADOWMAP_SIZE = 512;
+			dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 1);
+			//dlsr.setShadowIntensity(1f);
+			//dlsr.setShadowZFadeLength(10f);
+			dlsr.setLight(sun);
+			view2.addProcessor(dlsr);
+		}
 
 		return newCam;
 	}

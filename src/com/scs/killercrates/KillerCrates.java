@@ -155,7 +155,7 @@ public class KillerCrates extends MySimpleApplication {
 		return props;
 	}
 
-	
+
 	public static void saveProperties() {
 		String filepath = PROPS_FILE;
 		File propsFile = new File(filepath);
@@ -165,11 +165,23 @@ public class KillerCrates extends MySimpleApplication {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	public static int getPropertyAsInt(String name, int def) {
 		try { // todo - cache
 			int value = Integer.parseInt(properties.getProperty(name));
+			return value;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			properties.put(name, ""+def);
+			return def;
+		}
+	}
+
+
+	public static boolean getPropertyAsBoolean(String name, boolean def) {
+		try { // todo - cache
+			boolean value = Boolean.parseBoolean(properties.getProperty(name));
 			return value;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -189,21 +201,26 @@ public class KillerCrates extends MySimpleApplication {
 			return def;
 		}
 	}
-	
-	
-	public Node getRandomModel() {
-		int id = NumberFunctions.rnd(1, 3);
+
+
+	public Node getRandomModel(boolean player) {
 		Node model = null;
-		switch (id) {
-		case 1:
-			model = new ChairModel(getAssetManager());
-			break;
-		case 2:
-			model = new TableSimpleModel(getAssetManager());
-			break;
-		case 3:
-			model = new StoolModel(getAssetManager());
-			break;
+		if (player) {
+			// Only use certain models that aren't too big
+			model = new ChairModel(getAssetManager()); // todo - add more
+		} else {
+			int id = NumberFunctions.rnd(1, 3);
+			switch (id) {
+			case 1:
+				model = new ChairModel(getAssetManager());
+				break;
+			case 2:
+				model = new TableSimpleModel(getAssetManager());
+				break;
+			case 3:
+				model = new StoolModel(getAssetManager());
+				break;
+			}
 		}
 		return model;
 	}

@@ -8,9 +8,11 @@ import com.jme3.material.Material;
 import com.jme3.math.Vector2f;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.VertexBuffer.Type;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
 import com.jme3.texture.Texture.WrapMode;
+import com.jme3.util.BufferUtils;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
 import com.scs.killercrates.modules.GameModule;
@@ -23,7 +25,17 @@ public class Plank extends PhysicalEntity {
 		super(_game, _module, "Plank");
 
 		Box box1 = new Box(w/2, h/2, d/2);
-		box1.scaleTextureCoordinates(new Vector2f(1, d)); // todo - improve tex scaling when sorted
+		//box1.scaleTextureCoordinates(new Vector2f(1, d));
+		box1.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(new float[]{
+				0, h, w, h, w, 0, 0, 0, // back
+				0, h, d, h, d, 0, 0, 0, // right
+		        0, h, w, h, w, 0, 0, 0, // front
+		        0, h, d, h, d, 0, 0, 0, // left
+		        w, 0, w, d, 0, d, 0, 0, // top
+		        w, 0, w, d, 0, d, 0, 0  // bottom
+				}));
+
+
 		Geometry geometry = new Geometry("Crate", box1);
 		int i = NumberFunctions.rnd(1,  5);
 		TextureKey key3 = new TextureKey("Textures/wood_0/wood" + i + ".png");

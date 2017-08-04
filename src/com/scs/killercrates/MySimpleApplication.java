@@ -52,7 +52,7 @@ public abstract class MySimpleApplication extends Application {
     public MySimpleApplication() {
         //this( new StatsAppState(), new MyFlyCamAppState(), new DebugKeysAppState() );
     	//StatsAppState stats = new StatsAppState();//this.guiNode, this.guiFont);
-        this(new DebugKeysAppState()); // todo - re-add StatsAppState
+        this(new DebugKeysAppState());
     }
 
     
