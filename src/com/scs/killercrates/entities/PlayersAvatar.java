@@ -173,7 +173,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		this.playerGeometry.lookAt(lookAtPoint, Vector3f.UNIT_Y);
 
 		// Move cam fwd so we don't see ourselves
-		cam.setLocation(cam.getLocation().add(cam.getDirection().mult(PLAYER_RAD)));
+		cam.setLocation(cam.getLocation().add(cam.getDirection().mult(PLAYER_RAD*2))); // todo - adjust by model size
 
 		
 		this.input.resetFlags();

@@ -12,7 +12,7 @@ Shoot each other
 
 
 URGENT
-	Chair floating slightly
+Joypad always moving same speed - adjust by power
 HOME Gamepad a bit sensitive
 HOME Change textures to be like a house.
 	Select 3d detail level in config

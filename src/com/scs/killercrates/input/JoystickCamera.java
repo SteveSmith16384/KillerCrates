@@ -34,7 +34,7 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 		id = joystick.getJoyId();
 
 		super.setMoveSpeed(1f);
-		super.setRotationSpeed(KillerCrates.getPropertyAsFloat("gamepadRotationSpeed", 1.5f));//1.5f);//1.4f); 
+		super.setRotationSpeed(1f);//KillerCrates.getPropertyAsFloat("gamepadRotationSpeed", 1.5f));//1.5f);//1.4f); 
 
 		this.inputManager.addRawInputListener(this);
 
