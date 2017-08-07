@@ -41,7 +41,7 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public int getCodeForSquare(int x,  int z) {
-		return Settings.MAP_NOTHING;//todo 
+		return Settings.MAP_NOTHING;
 	}
 
 

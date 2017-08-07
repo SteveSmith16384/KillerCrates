@@ -1,9 +1,0 @@
-#Killer Crates settings file
-#Sat Aug 05 17:38:48 BST 2017
-numPlanks=10
-numCrates=35
-numInnerWalls=5
-mapSize=25
-gamepadRotationSpeed=1.5
-jumpForce=6.0
-moveSpeed=3.0

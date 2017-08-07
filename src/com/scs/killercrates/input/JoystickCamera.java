@@ -23,7 +23,8 @@ import com.scs.killercrates.Settings;
 public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawInputListener {
 
 	protected Joystick joystick;
-	private boolean strafeLeft = false, strafeRight = false, fwd = false, backward = false, jump = false, shoot = false, ability1 = false;
+	private boolean strafeLeft = false, strafeRight = false, backward = false, jump = false, shoot = false, ability1 = false;
+	private float fwdVal;
 	private int id;
 
 	public JoystickCamera(Camera _cam, Joystick _joystick, InputManager _inputManager) {
@@ -33,7 +34,7 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 		this.joystick = _joystick;
 		id = joystick.getJoyId();
 
-		super.setMoveSpeed(1f);
+		//super.setMoveSpeed(1f);
 		super.setRotationSpeed(1f);//KillerCrates.getPropertyAsFloat("gamepadRotationSpeed", 1.5f));//1.5f);//1.4f); 
 
 		this.inputManager.addRawInputListener(this);
@@ -88,7 +89,7 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 	}
 
 
-	protected void mapJoystick( Joystick joystick, int id ) {
+	protected void mapJoystick(Joystick joystick, int id) {
 		// Map it differently if there are Z axis
 		if( joystick.getAxis( JoystickAxis.Z_ROTATION ) != null && joystick.getAxis( JoystickAxis.Z_AXIS ) != null ) {
 
@@ -108,9 +109,15 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 	}
 
 
-	@Override
+	/*@Override
 	public boolean isFwdPressed() {
 		return fwd;
+	}*/
+
+
+	@Override
+	public float getFwdValue() {
+		return this.fwdVal;
 	}
 
 
@@ -169,10 +176,11 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 				rotateCamera(value * (invertY ? -1 : 1), cam.getLeft());
 			}
 		} else if (name.equals("jFLYCAM_Forward" + id)) {
-			fwd = value > CUTOFF;
+			//fwd = value > CUTOFF;
 			//if (fwd) 
 			Settings.p("fwd:" + value);
 			//moveCamera(value, false);
+			fwdVal = value;
 		} else if (name.equals("jFLYCAM_Backward" + id)) {
 			backward = value > CUTOFF;
 			if (backward) Settings.p("backward:" + value);
@@ -201,7 +209,8 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 	public void resetFlags() {
 		strafeLeft = false;
 		strafeRight = false;
-		fwd = false;
+		//fwd = false;
+		fwdVal = 0;
 		backward = false;
 
 	}        

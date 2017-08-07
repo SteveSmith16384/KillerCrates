@@ -141,9 +141,15 @@ public class MouseAndKeyboardCamera extends MyFlyByCamera implements ActionListe
 	}
 
 
-	@Override
+	/*@Override
 	public boolean isFwdPressed() {
 		return up;
+	}*/
+
+
+	@Override
+	public float getFwdValue() {
+		return 1f;//this.fwdVal;
 	}
 
 

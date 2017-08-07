@@ -37,7 +37,7 @@ public abstract class MyFlyByCamera implements AnalogListener, ActionListener {
 	protected Camera cam;
 	protected Vector3f initialUpVec;
 	protected float rotationSpeed = 1f;
-	protected float moveSpeed = 3f;
+	//protected float moveSpeed = 1f; //3f;
 	protected float zoomSpeed = 1f;
 	protected MotionAllowedListener motionAllowed = null;
 	protected boolean enabled = true;
@@ -67,21 +67,14 @@ public abstract class MyFlyByCamera implements AnalogListener, ActionListener {
 		this.motionAllowed = listener;
 	}
 
-	/**
-	 * Sets the move speed. The speed is given in world units per second.
-	 * @param moveSpeed
-	 */
-	public void setMoveSpeed(float moveSpeed){
+
+	/*public void setMoveSpeed(float moveSpeed){
 		this.moveSpeed = moveSpeed;
 	}
 
-	/**
-	 * Gets the move speed. The speed is given in world units per second.
-	 * @return moveSpeed
-	 */
 	public float getMoveSpeed(){
 		return moveSpeed;
-	}
+	}*/
 
 	/**
 	 * Sets the rotation speed.
@@ -318,7 +311,7 @@ public abstract class MyFlyByCamera implements AnalogListener, ActionListener {
 		cam.setFrustumRight(w);
 	}
 
-	protected void riseCamera(float value){
+	/*protected void riseCamera(float value){
 		Vector3f vel = new Vector3f(0, value * moveSpeed, 0);
 		Vector3f pos = cam.getLocation().clone();
 
@@ -347,7 +340,7 @@ public abstract class MyFlyByCamera implements AnalogListener, ActionListener {
 			pos.addLocal(vel);
 
 		cam.setLocation(pos);
-	}
+	}*/
 
 	public abstract void onAnalog(String name, float value, float tpf);
 

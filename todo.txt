@@ -1,4 +1,4 @@
-Killer Crates
+WARDROBE WARS
 
 SFX
 https://opengameart.org/content/teleport
@@ -8,19 +8,23 @@ https://opengameart.org/content/35-wooden-crackshitsdestructions
 
 
 GAME MODES
+Try and knock other players off the edge
 Shoot each other
 
 
 URGENT
-Joypad always moving same speed - adjust by power
-HOME Gamepad a bit sensitive
+Add ceiling
 HOME Change textures to be like a house.
-	Select 3d detail level in config
+	Use only cupboard models for player
 Affect other players with physics
-Use more models: cupboard, sofa single 
-HOME Convert mp3 & flac to wav
 No HUD on single player
+Joypad always moving same speed - adjust by power - Test FWD
+	Check screenshots
+Use more models
+HOME Convert mp3 & flac to wav
 Update readme with config settings
+	Select 3d detail level in config
+	Remove config from git
 
 
 TODO

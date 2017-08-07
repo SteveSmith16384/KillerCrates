@@ -43,7 +43,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 	//Temporary vectors used on each frame.
 	private Camera cam;
 	private Vector3f camDir = new Vector3f();
-	private Vector3f camLeft = new Vector3f();
+	private Vector3f camLeft = new Vector3f(); // Used for strafing
 
 	public HUD hud;
 	public MyBetterCharacterControl playerControl;
@@ -139,10 +139,10 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 			walkDirection.addLocal(camLeft.negate());
 			timeSinceLastMove = 0;
 		}
-		if (input.isFwdPressed()) {
-			walkDirection.addLocal(camDir);
+		//if (input.isFwdPressed()) {
+			walkDirection.addLocal(camDir.mult(input.getFwdValue()));
 			timeSinceLastMove = 0;
-		}
+		//}
 		if (input.isBackPressed()) {
 			walkDirection.addLocal(camDir.negate());
 			timeSinceLastMove = 0;
@@ -173,9 +173,8 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		this.playerGeometry.lookAt(lookAtPoint, Vector3f.UNIT_Y);
 
 		// Move cam fwd so we don't see ourselves
-		cam.setLocation(cam.getLocation().add(cam.getDirection().mult(PLAYER_RAD*2))); // todo - adjust by model size
-
-		
+		//cam.setLocation(cam.getLocation().add(cam.getDirection().mult(PLAYER_RAD*2))); // todo - adjust by model size
+	
 		this.input.resetFlags();
 
 		// Have we fallen off the edge

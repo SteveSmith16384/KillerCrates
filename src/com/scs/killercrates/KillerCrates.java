@@ -17,7 +17,9 @@ import com.jme3.asset.plugins.FileLocator;
 import com.jme3.font.BitmapFont;
 import com.jme3.scene.Node;
 import com.jme3.system.AppSettings;
+import com.scs.killercrates.models.BookshelfModel;
 import com.scs.killercrates.models.ChairModel;
+import com.scs.killercrates.models.CupboardModel;
 import com.scs.killercrates.models.StoolModel;
 import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.IModule;
@@ -207,9 +209,9 @@ public class KillerCrates extends MySimpleApplication {
 		Node model = null;
 		if (player) {
 			// Only use certain models that aren't too big
-			model = new ChairModel(getAssetManager()); // todo - add more
+			model = new CupboardModel(getAssetManager()); // todo - add more
 		} else {
-			int id = NumberFunctions.rnd(1, 3);
+			int id = NumberFunctions.rnd(1, 5);
 			switch (id) {
 			case 1:
 				model = new ChairModel(getAssetManager());
@@ -219,6 +221,12 @@ public class KillerCrates extends MySimpleApplication {
 				break;
 			case 3:
 				model = new StoolModel(getAssetManager());
+				break;
+			case 4:
+				model = new BookshelfModel(getAssetManager());
+				break;
+			case 5:
+				model = new CupboardModel(getAssetManager());
 				break;
 			}
 		}

@@ -38,13 +38,11 @@ public abstract class PhysicalEntity extends Entity implements IProcessable {
 	@Override
 	public void remove() {
 		super.remove();
-		if (this.main_node.getParent() == null) {
-			//todo throw new RuntimeException("No parent!");
-		} else {
-		this.main_node.removeFromParent(); // Don't need to remove left/right nodes as they are attached to the main node
+		if (this.main_node.getParent() != null) {
+			this.main_node.removeFromParent(); // Don't need to remove left/right nodes as they are attached to the main node
+		}
 	}
-	}
-	
+
 
 	/*public void turnLeft(float tpf) {
 		this.getMainNode().rotate(new Quaternion().fromAngleAxis(-1 * TURN_SPEED * tpf, Vector3f.UNIT_Y));
