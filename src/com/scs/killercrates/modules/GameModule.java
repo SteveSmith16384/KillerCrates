@@ -198,8 +198,8 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 
 		if (game.getPropertyAsBoolean("useShadows", true)) {
 			DirectionalLightShadowRenderer dlsr; 
-			final int SHADOWMAP_SIZE = 512;
-			dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 1);
+			final int SHADOWMAP_SIZE = 1024;
+			dlsr = new DirectionalLightShadowRenderer(game.getAssetManager(), SHADOWMAP_SIZE, 2);
 			//dlsr.setShadowIntensity(1f);
 			//dlsr.setShadowZFadeLength(10f);
 			dlsr.setLight(sun);
@@ -247,7 +247,7 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 
 		sun = new DirectionalLight();
 		sun.setColor(ColorRGBA.White);
-		sun.setDirection(new Vector3f(1.0f, -4.0f, 1.0f).normalizeLocal());
+		sun.setDirection(new Vector3f(0.0f, -1.0f, 0.0f).normalizeLocal());
 		game.getRootNode().addLight(sun);
 
 	}

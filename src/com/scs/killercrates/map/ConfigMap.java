@@ -26,7 +26,7 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public int getWidth() {
-		return game.getPropertyAsInt("mapSize", 25);
+		return game.getPropertyAsInt("mapSize", 20);
 	}
 
 

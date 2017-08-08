@@ -12,13 +12,10 @@ Shoot each other
 
 
 URGENT
-Get ceiling texture
-Wardrobe always standing upright
-	Lower furniture on start screen
-Diff texture modes
-	Add ceiling
 Player can see own cupboard - some way of hiding the player from themselves?
-	Change textures to be like a house.
+	Get ceiling texture
+Wardrobe always standing upright
+Diff texture modes
 	Joypad always moving same speed - adjust by power - Test FWD
 	Where is shadows setting?
 	Calc max fwd and use as proportion of dist

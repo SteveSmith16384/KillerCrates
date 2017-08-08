@@ -11,7 +11,6 @@ import com.jme3.scene.Spatial;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.MyBetterCharacterControl;
 import com.scs.killercrates.Settings;
-import com.scs.killercrates.Sky;
 import com.scs.killercrates.abilities.IAbility;
 import com.scs.killercrates.abilities.NoAbility;
 import com.scs.killercrates.components.IBullet;
@@ -21,6 +20,7 @@ import com.scs.killercrates.components.IEntity;
 import com.scs.killercrates.hud.AbstractHUDImage;
 import com.scs.killercrates.hud.HUD;
 import com.scs.killercrates.input.IInputDevice;
+import com.scs.killercrates.map.SimpleMapLoader;
 import com.scs.killercrates.modules.GameModule;
 import com.scs.killercrates.weapons.IMainWeapon;
 import com.scs.killercrates.weapons.KillerCrateGun;
@@ -100,7 +100,7 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 
 	public void moveToStartPostion() {
 		Point p = module.mapData.getPlayerStartPos(id);
-		playerControl.warp(new Vector3f(p.x, Sky.HEIGHT-1f, p.y));
+		playerControl.warp(new Vector3f(p.x, SimpleMapLoader.CEILING_HEIGHT-1f, p.y));
 
 	}
 

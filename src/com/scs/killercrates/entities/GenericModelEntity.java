@@ -15,7 +15,6 @@ public class GenericModelEntity extends PhysicalEntity implements IProcessable {
 	public GenericModelEntity(KillerCrates _game, GameModule _module, float x, float z, float w, float h, float d, float rotDegrees, Node modelNode) {
 		super(_game, _module, "Chair");
 
-		//ChairModel chairModel = new ChairModel(game.getAssetManager());
 		modelNode.setShadowMode(ShadowMode.CastAndReceive);
 		
 		this.main_node.attachChild(modelNode);

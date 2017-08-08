@@ -153,8 +153,8 @@ public class KillerCrates extends MySimpleApplication {
 			out.close();
 		}
 
-		*/
-		props.load(new FileInputStream(new File(filepath)));
+			 */
+			props.load(new FileInputStream(new File(filepath)));
 		}
 		return props;
 	}
@@ -185,9 +185,14 @@ public class KillerCrates extends MySimpleApplication {
 
 	public static boolean getPropertyAsBoolean(String name, boolean def) {
 		try {
-			boolean value = Boolean.parseBoolean(properties.getProperty(name));
-			properties.put(name, ""+value);
-			return value;
+			if (properties.containsKey(name)) {
+				boolean value = Boolean.parseBoolean(properties.getProperty(name));
+				properties.put(name, ""+value);
+				return value;
+			} else {
+				properties.put(name, ""+def);
+				return getPropertyAsBoolean(name, def);
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			properties.put(name, ""+def);
@@ -214,7 +219,7 @@ public class KillerCrates extends MySimpleApplication {
 			// Only use certain models that aren't too big
 			model = new CupboardModel(getAssetManager()); // todo - add more
 		} else {
-			int id = NumberFunctions.rnd(1, 5);
+			int id = 4; // Always use cupboards NumberFunctions.rnd(1, 5);
 			switch (id) {
 			case 1:
 				model = new ChairModel(getAssetManager());

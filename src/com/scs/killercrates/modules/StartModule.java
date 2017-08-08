@@ -98,7 +98,7 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		score.setText(Settings.NAME + "\n\nVersion " + Settings.VERSION + "\n\n" + 
 				(1+joysticks.length) + " player(s) found.  Please restart if you plug any more gamepads in.\n\n" + 
 				"The winner is the first player to score 100.\n\nPress FIRE to start!\n\n" + 
-				"Map settings: " + cfgMap.getWidth() + " by " + cfgMap.getDepth() + " with " + game.getPropertyAsInt("numFurniture", 35) + " pieces of furniture and " + game.getPropertyAsInt("numPlanks", 10) + " planks.\n" + 
+				"Map settings: " + cfgMap.getWidth() + " by " + cfgMap.getDepth() + " with " + game.getPropertyAsInt("numFurniture", 35) + " pieces of furniture.\n" + 
 				"Edit the file '" + KillerCrates.PROPS_FILE + "' to change this.");
 		score.setLocalTranslation(20, game.getCamera().getHeight()-20, 0);
 		game.getGuiNode().attachChild(score);

@@ -13,7 +13,7 @@ import com.scs.killercrates.shapes.CreateShapes;
 
 public class SimpleMapLoader implements IMapLoader {
 
-	public static final float CEILING_HEIGHT = 4f;
+	public static final float CEILING_HEIGHT = 3f;
 	
 	private KillerCrates game;
 	private GameModule module;
@@ -42,8 +42,8 @@ public class SimpleMapLoader implements IMapLoader {
 		for (int z=0 ; z<map.getDepth() ; z+= Settings.FLOOR_SECTION_SIZE) {
 			for (int x=0 ; x<map.getWidth() ; x+= Settings.FLOOR_SECTION_SIZE) {
 				//p("Creating floor at " + x + "," + z);
-				RigidBodyControl rbc = CreateShapes.CreateFloorTL(game.getAssetManager(), module.bulletAppState, this.rootNode, x, CEILING_HEIGHT, z, Settings.FLOOR_SECTION_SIZE, 0.1f, Settings.FLOOR_SECTION_SIZE, "Textures/carpet1.jpg");//sandstone.png");
-				module.bulletAppState.getPhysicsSpace().remove(rbc);
+				RigidBodyControl rbc = CreateShapes.CreateFloorTL(game.getAssetManager(), module.bulletAppState, this.rootNode, x, CEILING_HEIGHT, z, Settings.FLOOR_SECTION_SIZE, 0.1f, Settings.FLOOR_SECTION_SIZE, "Textures/drywall-ceiling-texture.jpg");//sandstone.png");
+				module.bulletAppState.getPhysicsSpace().remove(rbc); // Remove physics so we can fall through the floor.
 			}			
 		}
 
