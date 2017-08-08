@@ -140,9 +140,12 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 			timeSinceLastMove = 0;
 		}
 		//if (input.isFwdPressed()) {
+		if (input.getFwdValue() > 0)
+		{		
+			//Settings.p("fwd=" + input.getFwdValue());
 			walkDirection.addLocal(camDir.mult(input.getFwdValue()));
 			timeSinceLastMove = 0;
-		//}
+		}
 		if (input.isBackPressed()) {
 			walkDirection.addLocal(camDir.negate());
 			timeSinceLastMove = 0;

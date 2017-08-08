@@ -149,7 +149,7 @@ public class MouseAndKeyboardCamera extends MyFlyByCamera implements ActionListe
 
 	@Override
 	public float getFwdValue() {
-		return 1f;//this.fwdVal;
+		return up ? 1f : 0f	;//this.fwdVal;
 	}
 
 

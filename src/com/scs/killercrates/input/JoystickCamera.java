@@ -117,7 +117,7 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 
 	@Override
 	public float getFwdValue() {
-		return this.fwdVal;
+		return this.fwdVal * 100;
 	}
 
 

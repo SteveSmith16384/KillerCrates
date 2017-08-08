@@ -13,6 +13,8 @@ Shoot each other
 
 
 URGENT
+Where is shadows setting?
+Calc max fwd and use as proprtion of dist
 Add ceiling
 HOME Change textures to be like a house.
 	Use only cupboard models for player
