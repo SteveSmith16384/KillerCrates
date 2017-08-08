@@ -32,7 +32,7 @@ public class Fence extends PhysicalEntity {
 		switch (texCode) {
 		case 0:
 			//TextureKey key3 = new TextureKey("Textures/bricktex.jpg");
-			key3 = new TextureKey("Textures/seamless_bricks/bricks.png");
+			key3 = new TextureKey("Textures/lliella_funinthesun_paper1.jpg");//seamless_bricks/bricks.png");
 			break;
 
 		case 1:
@@ -54,7 +54,7 @@ public class Fence extends PhysicalEntity {
 		}
 		geometry.setMaterial(floor_mat);
 
-		geometry.setShadowMode(ShadowMode.Cast);
+		geometry.setShadowMode(ShadowMode.CastAndReceive);
 		
 		// Uncomment if tex is transparent
 		//floor_mat.getAdditionalRenderState().setBlendMode(BlendMode.Alpha);

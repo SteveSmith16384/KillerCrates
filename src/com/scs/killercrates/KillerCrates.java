@@ -17,7 +17,7 @@ import com.jme3.asset.plugins.FileLocator;
 import com.jme3.font.BitmapFont;
 import com.jme3.scene.Node;
 import com.jme3.system.AppSettings;
-import com.scs.killercrates.models.BookshelfModel;
+import com.scs.killercrates.models.BookModel;
 import com.scs.killercrates.models.ChairModel;
 import com.scs.killercrates.models.CupboardModel;
 import com.scs.killercrates.models.StoolModel;
@@ -139,21 +139,23 @@ public class KillerCrates extends MySimpleApplication {
 
 	private static Properties loadProperties() throws IOException {
 		String filepath = PROPS_FILE;
+		Properties props = new Properties();
 		File propsFile = new File(filepath);
-		if (propsFile.canRead() == false) {
-			// Create the properties file
+		if (propsFile.canRead()) {
+			/*// Create the properties file
 			PrintWriter out = new PrintWriter(propsFile.getAbsolutePath());
 			out.println("#" + Settings.NAME + " settings file");
 			out.println("# If you mess up this file, just move it out the way and another will be created.");
-			out.println("mapSize=25");
+			out.println("mapSize=20");
 			out.println("numInnerWalls=5");
-			out.println("numCrates=35");
+			out.println("numFurniture=35");
 			out.println("numPlanks=10");
 			out.close();
 		}
 
-		Properties props = new Properties();
+		*/
 		props.load(new FileInputStream(new File(filepath)));
+		}
 		return props;
 	}
 
@@ -170,7 +172,7 @@ public class KillerCrates extends MySimpleApplication {
 
 
 	public static int getPropertyAsInt(String name, int def) {
-		try { // todo - cache
+		try {
 			int value = Integer.parseInt(properties.getProperty(name));
 			return value;
 		} catch (Exception ex) {
@@ -182,8 +184,9 @@ public class KillerCrates extends MySimpleApplication {
 
 
 	public static boolean getPropertyAsBoolean(String name, boolean def) {
-		try { // todo - cache
+		try {
 			boolean value = Boolean.parseBoolean(properties.getProperty(name));
+			properties.put(name, ""+value);
 			return value;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -223,7 +226,7 @@ public class KillerCrates extends MySimpleApplication {
 				model = new StoolModel(getAssetManager());
 				break;
 			case 4:
-				model = new BookshelfModel(getAssetManager());
+				model = new BookModel(getAssetManager());
 				break;
 			case 5:
 				model = new CupboardModel(getAssetManager());

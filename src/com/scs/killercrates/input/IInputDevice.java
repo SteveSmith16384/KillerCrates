@@ -2,14 +2,13 @@ package com.scs.killercrates.input;
 
 public interface IInputDevice {
 
-	//boolean isFwdPressed();
 	float getFwdValue();
 
-	boolean isBackPressed();
+	float getBackValue();
 
-	boolean isStrafeLeftPressed();
+	float getStrafeLeftValue();
 
-	boolean isStrafeRightPressed();
+	float getStrafeRightValue();
 
 	boolean isJumpPressed();
 

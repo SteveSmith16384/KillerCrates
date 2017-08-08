@@ -4,9 +4,9 @@ import com.jme3.asset.AssetManager;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
-public class BookshelfModel extends Node {
+public class BookModel extends Node {
 	
-	public BookshelfModel(AssetManager assetManager) {
+	public BookModel(AssetManager assetManager) {
 		super("Bookshelf");
 		
 		Spatial s = assetManager.loadModel("Models/furniture/blend/book.blend");

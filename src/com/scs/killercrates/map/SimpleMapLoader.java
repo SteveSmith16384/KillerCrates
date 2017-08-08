@@ -1,5 +1,6 @@
 package com.scs.killercrates.map;
 
+import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.scene.Node;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
@@ -12,6 +13,8 @@ import com.scs.killercrates.shapes.CreateShapes;
 
 public class SimpleMapLoader implements IMapLoader {
 
+	public static final float CEILING_HEIGHT = 4f;
+	
 	private KillerCrates game;
 	private GameModule module;
 	private Node rootNode;
@@ -31,7 +34,16 @@ public class SimpleMapLoader implements IMapLoader {
 		for (int z=0 ; z<map.getDepth() ; z+= Settings.FLOOR_SECTION_SIZE) {
 			for (int x=0 ; x<map.getWidth() ; x+= Settings.FLOOR_SECTION_SIZE) {
 				//p("Creating floor at " + x + "," + z);
-				CreateShapes.CreateFloorTL(game.getAssetManager(), module.bulletAppState, this.rootNode, x, 0f, z, Settings.FLOOR_SECTION_SIZE, 0.1f, Settings.FLOOR_SECTION_SIZE, "Textures/sandstone.png");
+				CreateShapes.CreateFloorTL(game.getAssetManager(), module.bulletAppState, this.rootNode, x, 0f, z, Settings.FLOOR_SECTION_SIZE, 0.1f, Settings.FLOOR_SECTION_SIZE, "Textures/carpet1.jpg");//sandstone.png");
+			}			
+		}
+
+		// Ceiling
+		for (int z=0 ; z<map.getDepth() ; z+= Settings.FLOOR_SECTION_SIZE) {
+			for (int x=0 ; x<map.getWidth() ; x+= Settings.FLOOR_SECTION_SIZE) {
+				//p("Creating floor at " + x + "," + z);
+				RigidBodyControl rbc = CreateShapes.CreateFloorTL(game.getAssetManager(), module.bulletAppState, this.rootNode, x, CEILING_HEIGHT, z, Settings.FLOOR_SECTION_SIZE, 0.1f, Settings.FLOOR_SECTION_SIZE, "Textures/carpet1.jpg");//sandstone.png");
+				module.bulletAppState.getPhysicsSpace().remove(rbc);
 			}			
 		}
 
@@ -49,12 +61,12 @@ public class SimpleMapLoader implements IMapLoader {
 					break;
 
 				case Settings.MAP_FENCE_LR_HIGH:
-					PhysicalEntity fence1 = new Fence(game, module, x, 4f, z, 0, 0);
+					PhysicalEntity fence1 = new Fence(game, module, x, CEILING_HEIGHT, z, 0, 0);
 					this.rootNode.attachChild(fence1.getMainNode());
 					break;
 
 				case Settings.MAP_FENCE_FB_HIGH:
-					PhysicalEntity fence2 = new Fence(game, module, x, 4f, z, 90, 0);
+					PhysicalEntity fence2 = new Fence(game, module, x, CEILING_HEIGHT, z, 90, 0);
 					this.rootNode.attachChild(fence2.getMainNode());
 					break;
 

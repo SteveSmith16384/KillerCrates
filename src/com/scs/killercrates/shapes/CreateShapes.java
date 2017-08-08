@@ -43,7 +43,6 @@ public class CreateShapes {
 		node.attachChild(floor_geo);
 
 		floor_geo.setShadowMode(ShadowMode.Receive);
-		
 
 		// Make the floor physical with mass 0.0f!
 		RigidBodyControl floor_phy = new RigidBodyControl(0f);

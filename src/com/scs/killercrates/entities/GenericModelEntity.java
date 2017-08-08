@@ -1,13 +1,11 @@
 package com.scs.killercrates.entities;
 
-import com.jme3.asset.TextureKey;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Node;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.Settings;
 import com.scs.killercrates.components.IProcessable;
-import com.scs.killercrates.models.ChairModel;
 import com.scs.killercrates.modules.GameModule;
 
 public class GenericModelEntity extends PhysicalEntity implements IProcessable {

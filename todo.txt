@@ -1,4 +1,4 @@
-WARDROBE WARS
+BEDSIT WARDROBE WARS
 
 SFX
 https://opengameart.org/content/teleport
@@ -8,37 +8,36 @@ https://opengameart.org/content/35-wooden-crackshitsdestructions
 
 
 GAME MODES
-Try and knock other players off the edge
 Shoot each other
 
 
 URGENT
-Where is shadows setting?
-Calc max fwd and use as proprtion of dist
-Add ceiling
-HOME Change textures to be like a house.
-	Use only cupboard models for player
-Affect other players with physics
+Get ceiling texture
+Wardrobe always standing upright
+	Lower furniture on start screen
+Diff texture modes
+	Add ceiling
+Player can see own cupboard - some way of hiding the player from themselves?
+	Change textures to be like a house.
+	Joypad always moving same speed - adjust by power - Test FWD
+	Where is shadows setting?
+	Calc max fwd and use as proportion of dist
 No HUD on single player
-Joypad always moving same speed - adjust by power - Test FWD
-	Check screenshots
 Use more models
 HOME Convert mp3 & flac to wav
 Update readme with config settings
-	Select 3d detail level in config
-	Remove config from git
+Delete some textures
+Search for todos
 
 
 TODO
+Affect other players with physics - too hard
 Add logo to settings page
 Better font - use SF font?
 HOME Find sfx
 HOME Music
 HOME Add SFX
 Do exe release
-Better skybox
-Search for todos
-Different environments (textures)
 
 
 TEX

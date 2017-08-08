@@ -6,12 +6,8 @@ import ssmith.lang.NumberFunctions;
 
 import com.jme3.scene.Node;
 import com.scs.killercrates.KillerCrates;
-import com.scs.killercrates.entities.Crate;
 import com.scs.killercrates.entities.GenericModelEntity;
 import com.scs.killercrates.entities.Plank;
-import com.scs.killercrates.models.ChairModel;
-import com.scs.killercrates.models.StoolModel;
-import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.GameModule;
 
 public class BoxMap implements ISimpleMapData, IPertinentMapData {
@@ -76,10 +72,10 @@ public class BoxMap implements ISimpleMapData, IPertinentMapData {
 
 	@Override
 	public void addMisc() {
-		int numCrates = game.getPropertyAsInt("numCrates", 35);
+		int numFurniture = game.getPropertyAsInt("numFurniture", 35);
 		
 		// Sprinkle lots of boxes
-		for (int i=0 ; i<numCrates ; i++) {
+		for (int i=0 ; i<numFurniture ; i++) {
 			int x = NumberFunctions.rnd(4, getWidth()-5);
 			int z = NumberFunctions.rnd(4, getDepth()-5);
 			float w = NumberFunctions.rndFloat(.2f, 1f);

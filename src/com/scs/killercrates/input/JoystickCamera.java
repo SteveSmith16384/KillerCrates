@@ -12,7 +12,6 @@ import com.jme3.input.event.MouseButtonEvent;
 import com.jme3.input.event.MouseMotionEvent;
 import com.jme3.input.event.TouchEvent;
 import com.jme3.renderer.Camera;
-import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.MyFlyByCamera;
 import com.scs.killercrates.Settings;
 
@@ -23,8 +22,10 @@ import com.scs.killercrates.Settings;
 public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawInputListener {
 
 	protected Joystick joystick;
-	private boolean strafeLeft = false, strafeRight = false, backward = false, jump = false, shoot = false, ability1 = false;
-	private float fwdVal;
+	private boolean jump = false, shoot = false, ability1 = false;
+	//private boolean strafeLeft = false, strafeRight = false;
+	private float fwdVal, backVal, strafeLeftVal, strafeRightVal;
+	private float maxVal = 0.1f;
 	private int id;
 
 	public JoystickCamera(Camera _cam, Joystick _joystick, InputManager _inputManager) {
@@ -117,25 +118,25 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 
 	@Override
 	public float getFwdValue() {
-		return this.fwdVal * 100;
+		return this.fwdVal;
 	}
 
 
 	@Override
-	public boolean isBackPressed() {
-		return backward;
+	public float getBackValue() {
+		return this.backVal;
 	}
 
 
 	@Override
-	public boolean isStrafeLeftPressed() {
-		return strafeLeft;
+	public float getStrafeLeftValue() {
+		return this.strafeLeftVal;
 	}
 
 
 	@Override
-	public boolean isStrafeRightPressed() {
-		return strafeRight;
+	public float getStrafeRightValue() {
+		return this.strafeRightVal;
 	}
 
 
@@ -163,6 +164,9 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 			return;
 
 		float CUTOFF = 0.0015f;
+		if (value > maxVal) {
+			maxVal = value;
+		}
 		//Settings.p("name=" + name + "  value=" + value);
 
 		if (name.equals("jFLYCAM_Left" + id)) {
@@ -177,42 +181,24 @@ public class JoystickCamera extends MyFlyByCamera implements IInputDevice, RawIn
 			}
 		} else if (name.equals("jFLYCAM_Forward" + id)) {
 			//fwd = value > CUTOFF;
-			//if (fwd) 
-			Settings.p("fwd:" + value);
-			//moveCamera(value, false);
-			fwdVal = value;
+			fwdVal = value/maxVal;
+			Settings.p("fwdVal:" + value);
 		} else if (name.equals("jFLYCAM_Backward" + id)) {
-			backward = value > CUTOFF;
-			if (backward) Settings.p("backward:" + value);
-			//moveCamera(-value, false);
+			backVal = value/maxVal;
 		} else if (name.equals("jFLYCAM_StrafeLeft" + id)) {
-			strafeLeft = value > CUTOFF;
-			//moveCamera(value, true);
+			strafeLeftVal = value/maxVal;
 		} else if (name.equals("jFLYCAM_StrafeRight" + id)) {
-			strafeRight = value > CUTOFF;
-			//moveCamera(-value, true);
+			strafeRightVal = value/maxVal;
 		}
-
-		/*else if (name.equals("FLYCAM_Rise")){
-			riseCamera(value);
-		}else if (name.equals("FLYCAM_Lower")){
-			riseCamera(-value);
-		}else if (name.equals("FLYCAM_ZoomIn")){
-			zoomCamera(value);
-		}else if (name.equals("FLYCAM_ZoomOut")){
-			zoomCamera(-value);
-		}*/
 	}
 
 
 	@Override
 	public void resetFlags() {
-		strafeLeft = false;
-		strafeRight = false;
-		//fwd = false;
 		fwdVal = 0;
-		backward = false;
-
+		backVal = 0;
+		strafeLeftVal = 0;
+		strafeRightVal = 0;
 	}        
 
 

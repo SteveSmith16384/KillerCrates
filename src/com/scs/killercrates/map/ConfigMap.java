@@ -11,9 +11,6 @@ import com.scs.killercrates.entities.Fence;
 import com.scs.killercrates.entities.GenericModelEntity;
 import com.scs.killercrates.entities.PhysicalEntity;
 import com.scs.killercrates.entities.Plank;
-import com.scs.killercrates.models.ChairModel;
-import com.scs.killercrates.models.StoolModel;
-import com.scs.killercrates.models.TableSimpleModel;
 import com.scs.killercrates.modules.GameModule;
 
 public class ConfigMap implements ISimpleMapData, IPertinentMapData {
@@ -57,32 +54,29 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 	public void addMisc() {
 		// Add outer walls
 		for (int x=2 ; x<this.getWidth() ; x+=2) {
-			PhysicalEntity fence1 = new Fence(game, module, x, 4f, 1, 0, 0);
+			PhysicalEntity fence1 = new Fence(game, module, x, SimpleMapLoader.CEILING_HEIGHT, 1, 0, 0);
 			game.getRootNode().attachChild(fence1.getMainNode());
 
-			PhysicalEntity fence2 = new Fence(game, module, x, 4f, this.getDepth()-2, 0, 0);
+			PhysicalEntity fence2 = new Fence(game, module, x, SimpleMapLoader.CEILING_HEIGHT, this.getDepth()-2, 0, 0);
 			game.getRootNode().attachChild(fence2.getMainNode());
 
 		}
 		
 		for (int y=2 ; y<this.getDepth() ; y+=2) {
-			PhysicalEntity fence1 = new Fence(game, module, 1, 4f, y, 90, 0);
+			PhysicalEntity fence1 = new Fence(game, module, 1, SimpleMapLoader.CEILING_HEIGHT, y, 90, 0);
 			game.getRootNode().attachChild(fence1.getMainNode());
 
-			PhysicalEntity fence2 = new Fence(game, module, this.getWidth()-2, 4f, y, 90, 0);
+			PhysicalEntity fence2 = new Fence(game, module, this.getWidth()-2, SimpleMapLoader.CEILING_HEIGHT, y, 90, 0);
 			game.getRootNode().attachChild(fence2.getMainNode());
 
 		}
 		
-		int numCrates = game.getPropertyAsInt("numCrates", 35);
-		/*try {
-			numCrates = Integer.parseInt(game.properties.getProperty("numCrates"));
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}*/
+		
+		
+		int numFurniture = game.getPropertyAsInt("numFurniture", 35);
 		
 		// Sprinkle lots of boxes
-		for (int i=0 ; i<numCrates ; i++) {
+		for (int i=0 ; i<numFurniture ; i++) {
 			int x = NumberFunctions.rnd(4, getWidth()-5);
 			int z = NumberFunctions.rnd(4, getDepth()-5);
 			float w = NumberFunctions.rndFloat(.2f, 1f);
@@ -107,12 +101,7 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 		}
 
 		// Sprinkle lots of planks
-		int numPlanks = game.getPropertyAsInt("numPlanks", 10);
-		/*try {
-			numPlanks = Integer.parseInt(game.properties.getProperty("numPlanks"));
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}*/
+		/*int numPlanks = game.getPropertyAsInt("numPlanks", 10);
 		for (int i=0 ; i<numPlanks ; i++) {
 			int x = NumberFunctions.rnd(4, getWidth()-5);
 			int z = NumberFunctions.rnd(4, getDepth()-5);
@@ -120,7 +109,7 @@ public class ConfigMap implements ISimpleMapData, IPertinentMapData {
 			float d = NumberFunctions.rndFloat(3f, 5f);
 			Plank plank = new Plank(game, module, x, z, w, d, w, NumberFunctions.rnd(0, 359));
 			game.getRootNode().attachChild(plank.getMainNode());
-		}
+		}*/
 
 	}
 

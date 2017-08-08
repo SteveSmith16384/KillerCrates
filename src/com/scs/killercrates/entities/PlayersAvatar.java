@@ -3,15 +3,11 @@ package com.scs.killercrates.entities;
 import java.awt.Point;
 
 import com.jme3.asset.TextureKey;
-import com.jme3.material.Material;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.Camera.FrustumIntersect;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
-import com.jme3.texture.Texture;
 import com.scs.killercrates.KillerCrates;
 import com.scs.killercrates.MyBetterCharacterControl;
 import com.scs.killercrates.Settings;
@@ -131,23 +127,21 @@ public class PlayersAvatar extends PhysicalEntity implements ICollideable, ICanS
 		camDir.set(cam.getDirection()).multLocal(moveSpeed, 0.0f, moveSpeed);
 		camLeft.set(cam.getLeft()).multLocal(moveSpeed);
 		walkDirection.set(0, 0, 0);
-		if (input.isStrafeLeftPressed()) {
-			walkDirection.addLocal(camLeft);
-			timeSinceLastMove = 0;
-		}
-		if (input.isStrafeRightPressed()) {
-			walkDirection.addLocal(camLeft.negate());
-			timeSinceLastMove = 0;
-		}
-		//if (input.isFwdPressed()) {
-		if (input.getFwdValue() > 0)
-		{		
+		if (input.getFwdValue() > 0) {		
 			//Settings.p("fwd=" + input.getFwdValue());
 			walkDirection.addLocal(camDir.mult(input.getFwdValue()));
 			timeSinceLastMove = 0;
 		}
-		if (input.isBackPressed()) {
-			walkDirection.addLocal(camDir.negate());
+		if (input.getBackValue() > 0) {
+			walkDirection.addLocal(camDir.negate().mult(input.getBackValue()));
+			timeSinceLastMove = 0;
+		}
+		if (input.getStrafeLeftValue() > 0) {		
+			walkDirection.addLocal(camLeft.mult(input.getStrafeLeftValue()));
+			timeSinceLastMove = 0;
+		}
+		if (input.getStrafeRightValue() > 0) {		
+			walkDirection.addLocal(camLeft.negate().mult(input.getStrafeRightValue()));
 			timeSinceLastMove = 0;
 		}
 		playerControl.setWalkDirection(walkDirection);

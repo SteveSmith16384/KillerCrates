@@ -69,7 +69,7 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 		bulletAppState = new BulletAppState();
 		game.getStateManager().attach(bulletAppState);
 		bulletAppState.getPhysicsSpace().addCollisionListener(this);
-		//bulletAppState.getPhysicsSpace().enableDebug(assetManager);
+		//bulletAppState.getPhysicsSpace().enableDebug(game.getAssetManager());
 
 		game.getRenderManager().removeMainView(game.getViewPort()); // Since we create new ones for each player
 
@@ -124,8 +124,6 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 				c.lookAt(new Vector3f(mapData.getWidth()/2, PlayersAvatar.PLAYER_HEIGHT, mapData.getDepth()/2), Vector3f.UNIT_Y);
 			}
 		}
-
-		//stateManager.getState(StatsAppState.class).toggleStats(); // Turn off stats
 
 	}
 
