@@ -61,7 +61,6 @@ public class StartModule implements IModule, ActionListener, RawInputListener {
 		newCam.lookAt(Vector3f.UNIT_Z, Vector3f.UNIT_Y);
 
 		final ViewPort view2 = game.getRenderManager().createMainView("viewport_" + newCam.toString(), newCam);
-		//view2.setBackgroundColor(new ColorRGBA(0f, 0.9f, .9f, 0f)); // 148 187 242
 		view2.setBackgroundColor(new ColorRGBA(148f/255f, 187f/255f, 242f/255f, 0f));
 		view2.setClearFlags(true, true, true);
 		view2.attachScene(game.getRootNode());

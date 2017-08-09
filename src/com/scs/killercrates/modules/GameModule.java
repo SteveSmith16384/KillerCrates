@@ -140,22 +140,18 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 			newCam.setFrustumPerspective(45f, (float) newCam.getWidth() / newCam.getHeight(), 0.01f, Settings.CAM_DIST);
 			switch (id) { // left/right/bottom/top, from bottom-left!
 			case 0: // TL
-				Settings.p("Creating camera top-left");
 				newCam.setViewPort(0f, 0.5f, 0.5f, 1f);
 				newCam.setName("Cam_TL");
 				break;
 			case 1: // TR
-				Settings.p("Creating camera top-right");
 				newCam.setViewPort(0.5f, 1f, 0.5f, 1f);
 				newCam.setName("Cam_TR");
 				break;
 			case 2: // BL
-				Settings.p("Creating camera bottom-left");
 				newCam.setViewPort(0f, 0.5f, 0f, .5f);
 				newCam.setName("Cam_BL");
 				break;
 			case 3: // BR
-				Settings.p("Creating camera bottom-right");
 				newCam.setViewPort(0.5f, 1f, 0f, .5f);
 				newCam.setName("Cam_BR");
 				break;
@@ -188,8 +184,6 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 			throw new RuntimeException("Unknown number of players");
 
 		}
-		// Look at the centre by default
-		//c.lookAt(new Vector3f(map.getWidth()/2, 2f, map.getDepth()/2), Vector3f.UNIT_Y);
 
 		final ViewPort view2 = game.getRenderManager().createMainView("viewport_"+newCam.toString(), newCam);
 		view2.setBackgroundColor(new ColorRGBA(148f/255f, 187f/255f, 242f/255f, 0f));
@@ -367,9 +361,7 @@ public class GameModule implements IModule, PhysicsCollisionListener, ActionList
 	@Override
 	public void destroy() {
 		game.getInputManager().clearMappings();
-		game.getInputManager().clearRawInputListeners();//.removeRawInputListener(this);
-		//game.getInputManager().removeListener(this);
-
+		game.getInputManager().clearRawInputListeners();
 	}
 
 

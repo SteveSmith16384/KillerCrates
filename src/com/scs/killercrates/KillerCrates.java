@@ -219,7 +219,7 @@ public class KillerCrates extends MySimpleApplication {
 			// Only use certain models that aren't too big
 			model = new CupboardModel(getAssetManager()); // todo - add more
 		} else {
-			int id = 4; // Always use cupboards NumberFunctions.rnd(1, 5);
+			int id = 5; // Always use cupboards NumberFunctions.rnd(1, 5);
 			switch (id) {
 			case 1:
 				model = new ChairModel(getAssetManager());
