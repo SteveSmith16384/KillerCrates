@@ -2,6 +2,8 @@ KILLER CRATES
 
 A split-screen multiplayer game for up to 4 people.
 
+![ss1.png](https://i.imgur.com/Pd8doDH.png)
+
 By Steve Smith - https://twitter.com/stephencsmith
 
 
