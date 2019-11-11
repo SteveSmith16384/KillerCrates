@@ -15,7 +15,7 @@ public class Settings {
 	public static final float CAM_DIST = 50f;
 	public static final int FLOOR_SECTION_SIZE = 12;
 	public static final boolean LIGHTING = true;
-	public static final String NAME = "Wardrobe Wars";
+	public static final String NAME = "Killer Crates";
 	
 	// User Data
 	public static final String ENTITY = "Entity";

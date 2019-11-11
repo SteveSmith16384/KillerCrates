@@ -1,7 +1,0 @@
-#Wardrobe Wars settings file
-#Wed Aug 09 13:11:23 BST 2017
-numFurniture=35
-useShadows=true
-mapSize=20
-jumpForce=6.0
-moveSpeed=3.0
